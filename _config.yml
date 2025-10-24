@@ -19,6 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Rust Consultant & Developer - Arnaud Riess
+author: "Arnaud Riess"
 email: hello@arnaudriess.dev
 description: >- # this means to ignore newlines until "baseurl:"
   I offer professional consulting, development, and training services in Rust.

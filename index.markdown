@@ -1,39 +1,68 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: page
-title: Home
 ---
 
-Welcome to my site. My posts are shown on the [Blog](/blog/) page.
+# Building Safe Software Shouldn't Be This Hard
 
-# Introduction
+Finding a bug in production — or worse, in a car on the road or a medical device in use — sucks.
+It's expensive, stressful, and costs enormous amounts of time and energy.
+But that's the reality for many teams still fighting with C and C++ in safety-critical environments.
 
-I am Arnaud Riess, a Rust Consultant, Developer, and Trainer dedicated to helping teams build reliable, safe, and high-performance software. With extensive experience in embedded and critical systems, I specialize in leveraging Rust to deliver deterministic and maintainable solutions.
+How can we make safety-critical software development **faster, more reliable, and more predictable**?
+How can we **catch errors early**, before they reach the expensive Erprobung or series?
+And how can we **save resources** by doing things right the first time?
 
-# Problems Solved
+---
 
-I focus on addressing key challenges such as improving software reliability, ensuring safety in critical applications, optimizing performance, and achieving determinism in embedded systems. My expertise helps organizations reduce risks and enhance the quality of their software products.
+## The Challenge
 
-# Services
+In automotive, avionics, medical, and defense industries, developers struggle with:
+- Concurrency and memory bugs that slip through testing
+- TODO: "really? make this better;" Inflexible, license-heavy toolchains
+- TODO: "really? make this better;" Complex integration across suppliers and systems
+- TODO: "really? make this better;" Poor traceability between requirements, tests, and code
 
-## Consulting
+The result? Delays, rework, and massive costs when defects are found late in the process.
 
-I offer safety-critical architecture reviews, audits, and mentoring to guide your team in adopting best practices and robust design principles using Rust.
+---
 
-## Training
+## There Must Be a Better Way
 
-I provide workshops, courses, and code reviews tailored to your team's needs to accelerate Rust adoption and improve code quality.
+With **Rust**, we can change that.
 
-## Development
+Rust's compile-time guarantees, type system, and modern tooling ecosystem eliminate entire categories of runtime errors. But it's not only about writing safer code: it's about building better systems from the start. Rust's expressive type system make it possible to validate design decisions early, reducing what needs to be tested later. You can even extend these checks with formal verification tools from the Rust ecosystem to ensure architectural consistency and safety goals are met before runtime.
 
-I implement safe and efficient systems, applying Rust’s strengths to deliver maintainable and high-performance software tailored to your requirements.
+This **shift-left** approach moves validation from testing to design and compile time, saving effort, shortening development cycles, and increasing confidence in your software.
 
-# Book a Meeting
+You get:
+- Deterministic, memory-safe software
+- Easier integration
+- Faster feedback cycles
+- Fewer paths to test
+- Lower total cost of quality
 
-Schedule a meeting with me via [Cal.com](https://cal.com/your-placeholder-link) to discuss your project and how I can help.
+Early bug detection isn't just a technical win; it's a business win.
 
-# Contact
+---
 
-Feel free to reach out via email at [arnaud.riess@example.com](mailto:arnaud.riess@example.com).
+## What I Offer
+
+**Consulting**: I help teams transition from legacy C/C++ to Rust, design safer architectures, and build deterministic systems for safety-critical use cases. And yes, I can also convince your management that this is the way to go.
+
+**Training**: Practical, hands-on workshops that make Rust approachable for embedded and safety engineers.
+
+**Development Support**: I work alongside your team to deliver robust, production-ready Rust code — or review and harden what you already have.
+
+---
+
+## About Me
+I'm **Arnaud Riess**, with 15+ years in automotive and safety critical embedded software development: from Classic and Adaptive AUTOSAR to middleware and RTOS programming in C and C++. I've firsthand seen the good, the bad and the ~~ugly~~ rusty 🦀
+
+Now, I help organizations modernize their toolchains and development culture with Rust — without compromising safety or certification goals.
+
+---
+
+## Let's Talk
+
+Book a call on [Cal.com](https://cal.com/arnaud-riess)
+or send me an email at [{{ site.email }}](mailto:{{ site.email }}).

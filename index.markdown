@@ -4,9 +4,9 @@ layout: page
 
 ## Building Safe Software Is Hard — Let’s Make It Easier.
 
-Finding a bug in production — or worse, in a car or medical device — is painful.
+Finding a bug in production is painful - especially, when it comes to a safety critical system.
 It costs time, money, and energy that teams can’t afford to lose.
-That’s the reality for many organizations still working with C and C++ in safety-critical environments.
+That’s the reality for many organizations working in safety-critical environments.
 
 How can we make safety-critical software development **faster, more reliable, and more predictable**?
 How can we **catch errors early**, before they reach expensive validation or series production?
@@ -25,18 +25,18 @@ The result? Delays, rework, and high costs when issues surface late in the lifec
 
 ## Rust Helps
 
-With **Rust**, we can shift these challenges upstream.
+With **Rust**, we can move some of these challenges upstream.
 
-Rust helps teams meet the intent of functional safety standards more efficiently — by enforcing correctness at compile time, supporting verifiable architectures, and simplifying evidence collection for safety cases.
-Its strong typing and deterministic behavior align well with standards like **ISO 26262**, **DO‑178C**, and **IEC 61508**, making it easier to build certifiable systems without unnecessary process overhead.
+Rust supports functional safety by enforcing correctness at compile time, enabling verifiable architectures, and simplifying evidence for safety cases.
+Its strong typing and deterministic behavior align naturally with standards like **ISO 26262**, **DO‑178C**, and **IEC 61508**, helping teams build certifiable systems with less overhead.
 
-Beyond coding, Rust enables validation of design decisions at compile time.
-Through its expressive type system and growing ecosystem of formal‑verification tools, you can verify architecture and safety goals early — reducing what must be tested later.
-This **shift‑left** approach moves validation from testing to design, shortening development cycles and increasing confidence in your software.
+Beyond code, Rust lets you validate design decisions early.
+Its type system and verification tools catch issues before testing begins, reducing what needs to be tested later.
+This **shift‑left** approach shortens cycles, improves confidence, and lowers cost.
 
 You get:
-- Deterministic, memory‑ and thread‑safe guarantees
-- Compile‑time validation of functional correctness
+- Deterministic, memory‑ and thread‑safe software
+- Early validation of functional correctness
 - Faster integration and feedback
 - Fewer runtime paths to test
 - Lower total cost of quality
@@ -71,5 +71,6 @@ Now I help organizations modernize their toolchains and development culture with
 
 ## Let’s Talk
 
-Book a call on [Cal.com](https://cal.com/arnaud-riess)
-or send me an email at [{{ site.email }}](mailto:{{ site.email }}).
+Book a call on [Cal.com](https://cal.com/arnaud-riess),
+send me an email at [{{ site.email }}](mailto:{{ site.email }})
+or connect on [Linkedin](https://www.linkedin.com/in/arnaud-riess/).

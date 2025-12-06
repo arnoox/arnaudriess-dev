@@ -7,10 +7,7 @@
     "postCreateCommand": "bundle install || true",
     "customizations": {
         "vscode": {
-            "extensions": [
-                "openai.openai-chatgpt",
-                "openai.openai-codex"
-            ]
+            "extensions": []
         }
     }
 }

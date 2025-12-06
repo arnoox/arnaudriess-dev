@@ -1,0 +1,16 @@
+{
+    "name": "Jekyll Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/jekyll:latest",
+    "forwardPorts": [
+        4000
+    ],
+    "postCreateCommand": "bundle install || true",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "openai.openai-chatgpt",
+                "openai.openai-codex"
+            ]
+        }
+    }
+}

@@ -9,8 +9,8 @@ permalink: /impressum/
 **Angaben gemäß § 5 TMG**<br>
 {{ site.author }}<br>
 Rust Consulting, Development & Training <br>
-Musterstraße 12 <br>
-74321 Bietigheim-Bissingen <br>
+Theodor-Fontane-Weg 3<br>
+71735 Eberdingen<br>
 Germany
 
 **Contact**<br>

@@ -20,7 +20,11 @@
 
 title: Arnaud Riess - Safety-Critical Rust Consultant
 author: "Arnaud Riess"
-email: arnaud@arnaudriess.dev
+# Email is split into parts to avoid exposing a plain address in templates.
+# Use the include `{% include email.html %}` to render the contact link.
+email_user: "hi"
+email_domain: "arnaudriess.dev"
+email: ""
 description: >- # this means to ignore newlines until "baseurl:"
   I offer professional consulting, development, and training services in Rust.
   Helping businesses and developers build reliable, efficient, and safe software

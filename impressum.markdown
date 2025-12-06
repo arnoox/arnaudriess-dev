@@ -14,7 +14,7 @@ Musterstraße 12 <br>
 Germany
 
 **Contact**<br>
-Email: [{{ site.email }}](mailto:{{ site.email }})<br>
+Email: {% include email.html %}<br>
 Website: [{{ site.url }}]({{ site.url }})
 
 **Umsatzsteuer-ID:**<br>

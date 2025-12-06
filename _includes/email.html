@@ -1,0 +1,7 @@
+{%- assign user = site.email_user -%}
+{%- assign domain = site.email_domain -%}
+{%- if user and domain -%}
+<a class="u-email" href="mailto:{{ user }}&#64;{{ domain }}">{{ user }}&#64;{{ domain }}</a>
+{%- else -%}
+<!-- email not configured -->
+{%- endif -%}

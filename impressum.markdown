@@ -4,25 +4,23 @@ title: Impressum
 permalink: /impressum/
 ---
 
-## Legal Notice
+## Legal Notice / Impressum
 
 **Angaben gemäß § 5 TMG**<br>
-{{ site.author }}<br>
-Rust Consulting, Development & Training <br>
+Arnaud Riess<br>
+Rust Consulting, Development & Training<br>
 Theodor-Fontane-Weg 3<br>
 71735 Eberdingen<br>
 Germany
 
-**Contact**<br>
-Email: {% include email.html %}<br>
+**Kontakt:**<br>
+E‑Mail: {% include email.html %}<br>
 Website: [{{ site.url }}]({{ site.url }})
 
-**Umsatzsteuer-ID:**<br>
-USt-IdNr. gemäß § 27 a Umsatzsteuergesetz: DE123456789
+Umsatzsteuer‑Identifikationsnummer (USt‑IdNr.):
 
-**Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**<br>
-{{ site.author }}<br>
-(Anschrift wie oben)
+**Verantwortlich für den Inhalt nach § 55 RStV**:<br>
+Arnaud Riess (Anschrift wie oben)
 
 ---
 

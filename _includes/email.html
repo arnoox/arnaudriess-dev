@@ -1,7 +1,10 @@
 {%- assign user = site.email_user -%}
 {%- assign domain = site.email_domain -%}
+{%- assign extra_class = include.class | default: "" -%}
+{%- assign label = include.label | default: "" -%}
 {%- if user and domain -%}
-<a class="u-email" href="mailto:{{ user }}&#64;{{ domain }}">{{ user }}&#64;{{ domain }}</a>
+{%- assign default_label = user | append: "&#64;" | append: domain -%}
+<a class="u-email {{ extra_class }}" href="mailto:{{ user }}&#64;{{ domain }}">{{ label | default: default_label }}</a>
 {%- else -%}
 <!-- email not configured -->
 {%- endif -%}

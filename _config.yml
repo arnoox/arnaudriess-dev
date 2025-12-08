@@ -28,11 +28,16 @@ email: ""
 description: >- # this means to ignore newlines until "baseurl:"
   I offer professional consulting, development, and training services in Embedded and Safety-Critical Rust.
   Helping businesses and developers build reliable, efficient, and safe software
-  with Rust. Available for projects and workshops in Stuttgart, Germany, and worldwide.
+  with Rust. Available for projects and workshops.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://arnaudriess.dev" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  arnoox
 linkedin_username:  arnaud-riess
+
+# Optional: Cal.com booking username (leave empty if not used)
+cal_com_username: "arnaud-riess-dev"
+# Label for Cal.com CTA in footer
+cal_com_label: "Book a free call"
 
 # Build settings
 theme: minima

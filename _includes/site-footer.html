@@ -16,6 +16,16 @@
             <div class="footer-col footer-col-2">
                 <ul class="social-media-list">
                     <li>
+                        <a href="https://cal.com/{{ site.cal_com_username }}" target="_blank" rel="noopener noreferrer">
+                            <svg class="svg-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"
+                                focusable="false">
+                                <path fill="currentColor"
+                                    d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V9h14v9zM7 11h5v5H7z" />
+                            </svg>
+                            <span class="username">{{ site.cal_com_label | default: "Book a call" }}</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="https://github.com/{{ site.github_username }}">
                             <svg class="svg-icon">
                                 <use xlink:href="/assets/minima-social-icons.svg#github"></use>

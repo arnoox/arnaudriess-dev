@@ -28,7 +28,7 @@ Benefits:
 
 I’m **Arnaud Riess**, with 15+ years in automotive & safety‑critical embedded systems (ISO 26262). From Classic and Adaptive AUTOSAR to ADAS middleware and RTOS development in C and C++, I’ve seen the good, the bad, and the ~~ugly~~ rusty 🦀.
 
-I now help organizations modernize their safety-critical software and toolchains using Rust. **Industries:** Automotive, MedTech, Aerospace, and beyond. [Book a free call](#book-a-free-call)!
+I now help organizations modernize their safety-critical software and toolchains using Rust. **Industries:** Automotive, MedTech, Aerospace, and beyond. Available for projects and workshops in Stuttgart, Germany, and worldwide. [Book a free call](#book-a-free-call)!
 
 Fluent: 🇬🇧 English, 🇩🇪 German and 🇫🇷 French.
 

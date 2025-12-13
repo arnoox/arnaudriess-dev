@@ -40,9 +40,10 @@ cal_com_username: "arnaud-riess-dev"
 cal_com_label: "Book a free call"
 
 # Build settings
-theme: minima
+# theme: minima # removed, using custom theme in Gemfile
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.

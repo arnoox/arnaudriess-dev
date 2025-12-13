@@ -10,7 +10,7 @@ I help teams catch errors early, simplify verification, and build reliable softw
 ## Why Rust
 
 Rust brings correctness to compile time: deterministic behavior, strong typing, and memory/thread safety.
-It aligns naturally with functional safety standards like **ISO 26262**, **DO-178C**, and **IEC 61508**, enabling earlier validation and lower development cost.
+It aligns naturally with functional safety standards like **IEC 61508**, **ISO 26262** and **IEC 62304**, enabling earlier validation and lower development cost.
 
 Benefits:
 - Early error detection
@@ -26,7 +26,7 @@ Benefits:
 
 ## About Me
 
-I’m **Arnaud Riess**, with 15+ years in automotive & safety‑critical embedded systems (ISO 26262). From Classic and Adaptive AUTOSAR to ADAS middleware and RTOS development in C and C++, I’ve seen the good, the bad, and the ~~ugly~~ rusty 🦀.
+I’m **Arnaud Riess**, with 15+ years in automotive & safety‑critical embedded systems (ISO 26262). From Classic/Adaptive AUTOSAR to ADAS middleware and RTOS development in C and C++, I’ve seen the good, the bad, and the ~~ugly~~ rusty 🦀.
 
 I now help organizations modernize their safety-critical software and toolchains using Rust. **Industries:** Automotive, MedTech, Aerospace, and beyond. Available for projects and workshops in Stuttgart, Germany, and worldwide. [Book a free call](#book-a-free-call)!
 

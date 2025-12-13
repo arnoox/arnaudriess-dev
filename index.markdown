@@ -56,4 +56,4 @@ Cal("init", "30min", {origin:"https://app.cal.com"});
   .email-cta:hover { opacity: .92; }
 </style>
 
-{% include email.html class="email-cta" label="or write me an E‑Mail" %}
+{% include email.html class="email-cta" label="or write an E‑Mail" %}

@@ -1,10 +1,9 @@
 ---
 layout: page
-title: Impressum
+title: Legal Notice / Impressum
 permalink: /impressum/
+nav_exclude: true
 ---
-
-## Legal Notice / Impressum
 
 **Angaben gemäß § 5 TMG**<br>
 Arnaud Riess<br>

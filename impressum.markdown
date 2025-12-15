@@ -7,7 +7,7 @@ nav_exclude: true
 
 **Angaben gemäß § 5 TMG**<br>
 Arnaud Riess<br>
-Rust Consulting, Development & Training<br>
+Softwareentwicklung & Consulting<br>
 Theodor-Fontane-Weg 3<br>
 71735 Eberdingen<br>
 Germany

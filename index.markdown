@@ -12,12 +12,14 @@ I help teams catch errors early, simplify verification, and build reliable softw
 Rust brings correctness to compile time: deterministic behavior, strong typing, and memory/thread safety.
 It aligns naturally with functional safety standards like **IEC 61508**, **ISO 26262** and **IEC 62304**, enabling earlier validation and lower development cost.
 
-Benefits:
-- Early error detection
-- Deterministic, safe code
-- Less testing overhead
-- Faster integration cycles
-
+<div id="benefits">
+    <div class="flex-item">Benefits:</p></div>
+    <div class="flex-item"><img><p style="margin:0;">Early error detection</p></div>
+    <div class="flex-item"><img><p style="margin:0;">Deterministic, <br>safe code</p></div>
+    <div class="flex-item"><img><p style="margin:0;">Less testing overhead</p></div>
+    <div class="flex-item"><img><p style="margin:0;">Faster integration cycles</p></div>
+</div>
+        
 ## What I Do
 
 - **Consulting:** Rust adoption, architecture, and certification workflows for functional safety. I advise managers on ROI and long‑term efficiency, reducing costs and speeding delivery. [Book a free call](#book-a-free-call)!

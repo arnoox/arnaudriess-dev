@@ -253,3 +253,89 @@
     }
   }
 }
+
+
+/**
+ * index
+ */
+#benefits {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: left; 
+    align-items: flex-start; 
+    width: 100%; 
+    gap: 30px;
+    
+
+    p:first-child {
+        font-weight: 700;
+        margin-top: 34px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .flex-item {
+        display: flex; 
+        flex-direction: column; 
+        width: calc(100%/5); 
+        height: -webkit-fill-available;
+        gap: 6px;
+
+    }
+}
+
+#whatido {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: left; 
+    align-items: flex-start; 
+    width: 100%; 
+    gap: 30px;
+
+    p {
+        margin: 0;
+    }
+
+    p:first-child {
+        font-weight: 700;
+      }
+
+    .flex-item {
+        display: flex; 
+        flex-direction: column; 
+        width: calc(100%/3); 
+        height: -webkit-fill-available;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 756px){
+
+    #benefits, #whatido {
+        flex-direction: column; 
+
+        .flex-item {
+            width: fit-content;
+        }
+    }
+
+    #whatido {
+        .flex-item {
+            flex-direction: column; 
+        }
+    }
+    
+    #benefits {
+        .flex-item {
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+        }
+    }
+
+    br {
+        display: none;
+    }
+}

@@ -5,7 +5,11 @@
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   {%- feed_meta -%}
-  {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include google-analytics.html -%}
+  <link rel="icon" href="{{ "/favicon.svg" | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap">
+  {%- if site.umami_website_id -%}
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="{{ site.umami_website_id }}"></script>
   {%- endif -%}
 </head>

@@ -39,6 +39,10 @@ cal_com_username: "arnaud-riess-dev"
 # Label for Cal.com CTA in footer
 cal_com_label: "Book a free call"
 
+# Analytics (Umami Cloud – cookie-free, privacy-friendly)
+# Set your website ID from https://cloud.umami.is after creating a site.
+umami_website_id: "18d7ff10-f9cc-4511-9fd0-52bc970e3955"
+
 # Build settings
 # theme: minima # removed, using custom theme in Gemfile
 plugins:

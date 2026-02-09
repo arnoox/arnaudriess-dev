@@ -48,6 +48,7 @@ umami_website_id: "18d7ff10-f9cc-4511-9fd0-52bc970e3955"
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -16,7 +16,7 @@ Germany
 E‑Mail: {% include email.html %}<br>
 Website: [{{ site.url }}]({{ site.url }})
 
-Umsatzsteuer‑Identifikationsnummer (USt‑IdNr.):
+Umsatzsteuer‑Identifikationsnummer (USt‑IdNr.): DE459903031
 
 **Verantwortlich für den Inhalt nach § 55 RStV**:<br>
 Arnaud Riess (Anschrift wie oben)

@@ -3,33 +3,56 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div>
-      <div class="eyebrow">Safety-critical Rust · ISO 26262 · IEC 61508 · IEC 62304</div>
-      <h1>Safety-critical software development is <em>hard enough.</em></h1>
-      <p class="lede"><strong>Bugs in production cost time, money, and trust</strong>, especially in safety-critical systems.
-        I help teams catch errors early, simplify verification, and build reliable software faster.</p>
+      <div class="eyebrow">Rust ↔ C interop · ISO 26262 · IEC 61508</div>
+      <h1>Rust is safe. <em>The boundary to C is not.</em></h1>
+      <p class="lede"><strong>Safety projects add Rust next to existing C, and every call across that boundary is unchecked.</strong>
+        I audit, build and qualify your Rust and C bindings for ISO 26262 and IEC 61508, at a fixed price.</p>
       <div class="cta">
-        <a class="btn" href="#book-a-free-call">Book a free call</a>
-        <a class="btn ghost" href="#services">What I do</a>
+        <a class="btn" href="{{ get_url(path='@/rust-c-interop.md') }}">See the fixed-price offer</a>
+        <a class="btn ghost" href="#book-a-free-call">Book a free call</a>
       </div>
       <p class="fine">Stuttgart, Germany, and worldwide · English, Deutsch, Français</p>
     </div>
 
-    <div class="diff" role="img" aria-label="Rust compiler error: a CAN frame is used after it was moved to another task. The compiler rejects the code.">
-      <div class="top"><span class="dots"><i></i><i></i><i></i></span><span>cargo build · gateway</span></div>
+    <div class="diff" role="img" aria-label="A C function takes a 16-bit length. The hand-written Rust binding declares it as usize. Both sides compile and link without a warning.">
+      <div class="top"><span class="dots"><i></i><i></i><i></i></span><span>can.h · bindings.rs</span></div>
       <div class="scroll">
-<pre><span class="bad">error[E0382]</span><span class="hl">: borrow of moved value: `frame`</span>
-<span class="dim">  --&gt;</span> src/gateway.rs:42:23
-<span class="dim">   |</span>
-<span class="dim">39 |</span>     let frame = can.receive()?;
-<span class="dim">   |</span>         <span class="dim">-----</span> <span class="dim">move occurs because `frame` has type `CanFrame`</span>
-<span class="dim">40 |</span>     tx.send(frame)?;
-<span class="dim">   |</span>             <span class="dim">-----</span> <span class="dim">value moved here</span>
-<span class="dim">41 |</span>
-<span class="dim">42 |</span>     log::debug!("{}", frame.id());
-<span class="dim">   |</span>                       <span class="bad">^^^^^ value borrowed here after move</span></pre>
+<pre><span class="dim">// can.h (C, supplier driver)</span>
+int32_t can_read(uint8_t *buf, <span class="hl">uint16_t</span> len);
+
+<span class="dim">// bindings.rs (Rust, hand-written)</span>
+extern "C" {
+    fn can_read(buf: *mut u8, len: <span class="bad">usize</span>) -&gt; i32;
+}
+
+<span class="dim">$ cargo build --target thumbv7em-none-eabihf</span>
+<span class="dim">    Finished release [optimized]</span></pre>
       </div>
-      <div class="verdict ok"><span>✓</span><span><b>Caught at compile time.</b> In C, the same mistake builds cleanly and turns up in integration, or in the field.</span></div>
+      <div class="verdict"><span>✗</span><span><b>Builds and links cleanly.</b> Neither compiler checks the other side of the call. That is where I come in.</span></div>
     </div>
+  </div>
+</section>
+
+<section id="rust-c-interop">
+  <div class="wrap">
+    <a class="offer" href="{{ get_url(path='@/rust-c-interop.md') }}">
+      <div class="offer-copy">
+        <div class="eyebrow">Fixed-price offer · Rust ↔ C interop</div>
+        <h3>Your Rust and C boundary, <em>proven</em>.</h3>
+        <p>Fixed-price audit, build and target qualification of Rust and C bindings for ISO 26262 and IEC 61508 projects.</p>
+      </div>
+      <ol class="offer-steps" aria-label="Process">
+        <li><span>01</span>Binding Assessment</li>
+        <li><span>02</span>Audit or Build</li>
+        <li><span>03</span>Fix</li>
+        <li><span>04</span>Target Qualification</li>
+        <li><span>05</span>Subscription</li>
+      </ol>
+      <div class="offer-foot">
+        <span class="offer-price">Start: Binding Assessment · €1,200, deducted from your audit or build</span>
+        <span class="offer-cta">See how it works ⟶</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -54,8 +77,9 @@
 <section id="services">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">What I do</div>
+      <div class="eyebrow">Beyond the boundary</div>
       <h2>Consulting, training, development.</h2>
+      <p class="lede">Rust and C interop is my focus. I also take on the wider Rust work around it.</p>
     </div>
     <div class="grid3">
       <div class="card">
@@ -78,25 +102,6 @@
         <a class="arrow" href="#book-a-free-call">Discuss a project ⟶</a>
       </div>
     </div>
-
-    <a class="offer" href="{{ get_url(path='@/rust-c-interop.md') }}">
-      <div class="offer-copy">
-        <div class="eyebrow">Fixed-price offer · Seamproof</div>
-        <h3>Your Rust and C boundary, <em>proven</em>.</h3>
-        <p>Fixed-price audit, build and target qualification of Rust and C bindings for ISO 26262 and IEC 61508 projects.</p>
-      </div>
-      <ol class="offer-steps" aria-label="Process">
-        <li><span>01</span>Binding Assessment</li>
-        <li><span>02</span>Audit or Build</li>
-        <li><span>03</span>Fix</li>
-        <li><span>04</span>Target Qualification</li>
-        <li><span>05</span>Subscription</li>
-      </ol>
-      <div class="offer-foot">
-        <span class="offer-price">Start: Binding Assessment · €1,200, deducted from your audit or build</span>
-        <span class="offer-cta">See how it works ⟶</span>
-      </div>
-    </a>
   </div>
 </section>
 
@@ -112,7 +117,7 @@
       <p>I now help organizations modernize their safety-critical software and toolchains using Rust.
         <strong>Industries:</strong> Automotive, MedTech, Aerospace, and beyond. Available for projects and workshops in
         Stuttgart, Germany, and worldwide.</p>
-      <div class="tags"><span>Embedded Rust</span><span>AUTOSAR Classic / Adaptive</span><span>ADAS</span><span>RTOS</span><span>C / C++</span><span>Functional safety</span></div>
+      <div class="tags"><span>Rust ↔ C interop</span><span>Embedded Rust</span><span>AUTOSAR Classic / Adaptive</span><span>ADAS</span><span>RTOS</span><span>C / C++</span><span>Functional safety</span></div>
       <p class="muted">Fluent: 🇬🇧 English, 🇩🇪 German and 🇫🇷 French.</p>
     </div>
   </div>

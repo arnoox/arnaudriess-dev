@@ -48,6 +48,26 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      # Hidden preview of the Zola redesign (branch "zola"), not linked anywhere.
+      - name: Checkout zola branch
+        uses: actions/checkout@v4
+        with:
+          ref: zola
+          path: zola-src
+      - name: Build Zola preview
+        env:
+          ZOLA_VERSION: "0.23.6"
+          PREVIEW_DIR: preview-377cf0ec9ccb
+        run: |
+          curl -sSfL "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+            | tar xz -C /usr/local/bin zola
+          cd zola-src
+          zola build --base-url "https://arnaudriess.dev/${PREVIEW_DIR}" \
+            --output-dir "../_site/${PREVIEW_DIR}" --force
+          cd "../_site/${PREVIEW_DIR}"
+          rm -f sitemap.xml robots.txt
+          find . -name '*.html' -exec sed -i \
+            's|<head>|<head><meta name="robots" content="noindex, nofollow">|' {} +
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3

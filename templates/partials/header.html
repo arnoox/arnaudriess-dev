@@ -6,12 +6,23 @@
       <span class="brand-tag">Safety-Critical<br>Rust Consultant</span>
     </a>
     <nav class="site-nav" aria-label="Main">
+      <div class="nav-links" id="nav-links">
       <a href="{{ home }}#services">Services</a>
       <a href="{{ get_url(path='@/rust-c-interop.md') }}"{% if current_path == "/rust-c-interop/" %} aria-current="page"{% endif %}>Rust ↔ C</a>
       <a href="{{ home }}#why-rust">Why Rust</a>
       <a href="{{ home }}#about">About</a>
       <a href="{{ get_url(path='@/blog/_index.md') }}"{% if current_path and "/blog/" in current_path %} aria-current="page"{% endif %}>Blog</a>
+      </div>
       <a class="btn sm" href="{{ home }}#book-a-free-call">Book a free call</a>
+      <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
+<script>
+  (function () {
+    var b = document.querySelector(".nav-toggle"), n = document.getElementById("nav-links");
+    function set(open) { n.classList.toggle("open", open); b.setAttribute("aria-expanded", open); }
+    b.addEventListener("click", function () { set(!n.classList.contains("open")); });
+    n.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+  })();
+</script>

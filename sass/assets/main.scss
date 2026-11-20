@@ -99,7 +99,28 @@ h1 em, h2 em { font-style: normal; color: var(--accent); }
 .site-nav a:not(.btn) { font-size: 15px; color: var(--muted); text-decoration: none; }
 .site-nav a:not(.btn):hover, .site-nav a[aria-current] { color: var(--fg); }
 .site-nav a[aria-current] { font-weight: 600; }
-@media (max-width: 780px) { .site-nav a:not(.btn) { display: none; } }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-toggle { display: none; }
+@media (max-width: 780px) {
+  .site-nav { gap: 10px; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0; padding: 8px 16px 16px;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a:not(.btn) { padding: 12px 0; font-size: 17px; border-bottom: 1px solid var(--line); }
+  .nav-links a:last-child { border-bottom: 0; }
+  .nav-toggle {
+    display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 42px; padding: 0 10px; background: transparent;
+    border: 1px solid var(--line); border-radius: 6px; cursor: pointer;
+  }
+  .nav-toggle span { display: block; height: 2px; background: var(--fg); border-radius: 1px; transition: transform .15s, opacity .15s; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
 @media (max-width: 380px) { .brand-tag { display: none; } }
 
 // ---------- Sections ----------
@@ -277,3 +298,6 @@ section.band { background: var(--band); }
 // Offer directly under the hero on the home page
 #rust-c-interop { padding-top: 0; }
 #rust-c-interop .offer { margin-top: 0; }
+.hero .also { margin-top: 18px; font-size: 15px; }
+.hero .also a { color: var(--fg); font-weight: 600; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.hero .also a:hover { color: var(--accent); }

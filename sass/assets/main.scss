@@ -217,7 +217,7 @@ section.band { background: var(--band); }
 .mail .addr a { text-decoration: none; }
 .mail small { color: var(--muted); font-size: 14px; }
 .mail .btn { align-self: flex-start; }
-.cal-card { margin-top: 40px; background: var(--surface); border-radius: 14px; padding: 8px; min-height: 520px; overflow: hidden; }
+.cal-card { margin-top: 40px; background: var(--surface); border-radius: 14px; padding: 8px; min-height: 466px; overflow: hidden; }
 @media (max-width: 860px) { .final .split { grid-template-columns: 1fr; } }
 
 // ---------- Text pages (Impressum etc.) ----------

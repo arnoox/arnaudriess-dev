@@ -132,7 +132,7 @@
       </div>
     </div>
     <div class="cal-card">
-      <div style="width:100%;min-height:500px;overflow:auto" id="my-cal-inline-30min"></div>
+      <div style="width:100%;min-height:450px;overflow:auto" id="my-cal-inline-30min"></div>
     </div>
   </div>
 </section>
@@ -143,10 +143,10 @@
   Cal("init", "30min", {origin:"https://app.cal.com"});
   Cal.ns["30min"]("inline", {
     elementOrSelector:"#my-cal-inline-30min",
-    config: {"layout":"week_view","theme":"light"},
+    config: {"layout":"month_view","theme":"light"},
     calLink: "{{ config.extra.cal_com_username }}/30min",
   });
-  Cal.ns["30min"]("ui", {"hideEventTypeDetails":true,"layout":"week_view","theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#1B1B1B"}}});
+  Cal.ns["30min"]("ui", {"hideEventTypeDetails":true,"layout":"month_view","theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#1B1B1B"}}});
 </script>
 <!-- Cal inline embed code ends -->
 {% endblock main %}

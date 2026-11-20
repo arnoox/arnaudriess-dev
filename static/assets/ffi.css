@@ -3,64 +3,82 @@
 .ffi h2[style] + .lede{ margin-top:16px; }
 .ffi .bug h3{ font-size:22px; }
 
-/* How it works: one vertical flow. 02 fans out into the size classes and joins again into 03. */
-.ffi .flow{list-style:none; margin:0 auto; padding:0; max-width:940px; display:flex; flex-direction:column; gap:56px; --wire:var(--ink);}
-.ffi .node{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:22px 24px;
-  display:grid; grid-template-columns:230px minmax(0,1fr) auto; gap:8px 28px; align-items:baseline;}
-.ffi .node-id{display:flex; flex-direction:column; gap:4px;}
-.ffi .node .num{font-family:var(--mono); font-size:13px; color:var(--muted);}
-.ffi .node h3{font-size:24px; font-stretch:var(--condensed); font-weight:700; text-transform:uppercase; letter-spacing:.005em;}
-.ffi .node p{color:var(--muted); font-size:15.5px;}
-.ffi .node p.more{margin-top:6px; font-size:15px;}
-.ffi .price{font-family:var(--mono); font-size:13px; color:var(--accent); font-weight:600; white-space:nowrap;}
-.ffi .node.door{border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent);}
-.ffi .node.door h3, .ffi .node.door .num{color:var(--accent);}
+/* How it works: one vertical flow. 02 fans out into the size classes and joins again into 03.
+   Each step's title sits in an ink block, like the logo; the entry step is rust. */
+.ffi .flow{list-style:none; margin:0 auto; padding:0; max-width:960px; display:flex; flex-direction:column; gap:56px; --wire:var(--ink);}
+.ffi .node{position:relative; background:var(--surface); border:2px solid var(--ink); border-radius:12px;
+  display:grid; grid-template-columns:250px minmax(0,1fr) auto; align-items:stretch;}
+.ffi .node > p, .ffi .node > .node-text{padding:22px 24px; color:var(--text); font-size:16.5px;}
+.ffi .node > .price{margin:22px 24px 0 0;}
+.ffi .node p.more{margin-top:8px; font-size:15.5px; color:var(--muted);}
+.ffi .node-id{background:var(--ink); color:var(--bg); padding:20px 24px; border-radius:9px 0 0 9px; display:flex; flex-direction:column; justify-content:center; gap:6px;}
+.ffi .node-id .num{font-family:var(--mono); font-size:13px; color:#BDB4AB; letter-spacing:.06em;}
+.ffi .node-id h3{color:var(--bg); font-size:26px; font-stretch:var(--condensed); font-weight:700; text-transform:uppercase; letter-spacing:.005em; line-height:1;}
+.ffi .node.door{border-color:var(--accent);}
+.ffi .node.door .node-id{background:var(--accent);}
+.ffi .node.door .node-id .num{color:#F4D3C3;}
+
+/* price tags */
+.ffi .price{align-self:start; justify-self:start; font-family:var(--mono); font-size:13px; font-weight:600; white-space:nowrap;
+  background:var(--accent-soft); color:var(--accent-deep); border-radius:6px; padding:5px 10px;}
 
 /* arrows between nodes */
-.ffi .flow > li + li::before{content:""; position:absolute; left:50%; top:-57px; height:47px; width:2px; background:var(--wire); transform:translateX(-50%);}
-.ffi .flow > li + li::after{content:""; position:absolute; left:50%; top:-11px; transform:translateX(-50%);
-  border-left:6px solid transparent; border-right:6px solid transparent; border-top:9px solid var(--wire);}
+.ffi .flow > li + li::before{content:""; position:absolute; left:50%; top:-58px; height:47px; width:3px; background:var(--wire); transform:translateX(-50%);}
+.ffi .flow > li + li::after{content:""; position:absolute; left:50%; top:-13px; transform:translateX(-50%);
+  border-left:8px solid transparent; border-right:8px solid transparent; border-top:11px solid var(--wire);}
 
 /* 02: the big node */
-.ffi .node.big{display:block; padding:26px 26px 0;}
-.ffi .big-top{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px;}
-.ffi .big-main{display:flex; flex-direction:column; gap:10px;}
-.ffi .big-side{background:var(--bg); border-radius:10px; padding:18px 20px; display:flex; flex-direction:column; gap:8px;}
-.ffi .big-side h4{font-size:17px; font-weight:600; line-height:1.3;}
-.ffi .big-side p{font-size:15px;}
-.ffi .big-side .points{margin-top:6px;}
+.ffi .node.big{display:block;}
+.ffi .big-main{display:grid; grid-template-columns:250px minmax(0,1fr); align-items:stretch;}
+.ffi .big-main > .node-id{grid-row:span 2; border-radius:9px 0 0 0;}
+.ffi .big-main > p{grid-column:2; padding:22px 24px 6px; color:var(--text); font-size:16.5px;}
+.ffi .big-main > .svc{grid-column:2; margin:0; padding:0 24px 22px;}
+.ffi .big-main .svc span{color:var(--text);}
+.ffi .fan{position:relative; display:flex; flex-direction:column; align-items:center; padding:0 24px 40px; border-top:2px solid var(--ink);}
+.ffi .fan > .price{position:relative; margin-top:26px; justify-self:center; align-self:center; background:var(--accent); color:#fff; border-radius:999px; padding:6px 14px;}
+.ffi .fan > .price::before{content:""; position:absolute; left:50%; bottom:100%; height:26px; width:3px; background:var(--wire); transform:translateX(-50%);}
+.ffi .fan > .price::after{content:""; position:absolute; left:50%; top:100%; height:18px; width:3px; background:var(--wire); transform:translateX(-50%);}
+.ffi .fan::after{content:""; position:absolute; left:50%; bottom:0; height:18px; width:3px; background:var(--wire); transform:translateX(-50%);}
 
-.ffi .fan{position:relative; display:flex; flex-direction:column; align-items:center; padding-bottom:40px;}
-.ffi .fan > .price{position:relative; margin-top:26px; border:1px solid var(--accent); border-radius:999px; padding:4px 12px; background:var(--surface);}
-.ffi .fan > .price::before{content:""; position:absolute; left:50%; bottom:100%; height:26px; width:2px; background:var(--wire); transform:translateX(-50%);}
-.ffi .fan > .price::after{content:""; position:absolute; left:50%; top:100%; height:18px; width:2px; background:var(--wire); transform:translateX(-50%);}
-.ffi .fan::after{content:""; position:absolute; left:50%; bottom:0; height:18px; width:2px; background:var(--wire); transform:translateX(-50%);}
-
-.ffi .sizes{position:relative; width:100%; margin-top:40px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;}
-.ffi .sizes::before, .ffi .sizes::after{content:""; position:absolute; left:calc((100% - 30px) / 8); right:calc((100% - 30px) / 8); height:2px; background:var(--wire);}
-.ffi .sizes::before{top:-22px;}
-.ffi .sizes::after{bottom:-22px;}
-.ffi .size{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 10px; text-align:center; display:flex; flex-direction:column; gap:4px; min-width:0;}
-.ffi .size b{font-stretch:var(--condensed); font-weight:700; font-size:40px; color:var(--ink); line-height:1;}
-.ffi .size span{font-family:var(--mono); font-size:12.5px; color:var(--muted);}
-.ffi .size.hl{border-color:var(--ink); box-shadow:inset 0 0 0 1px var(--ink);}
-.ffi .size .in, .ffi .size .out{position:absolute; left:50%; width:2px; height:22px; background:var(--wire); transform:translateX(-50%);}
-.ffi .size .in{top:-22px;}
-.ffi .size .in::after{content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%);
-  border-left:5px solid transparent; border-right:5px solid transparent; border-top:8px solid var(--wire);}
-.ffi .size .out{bottom:-22px;}
+.ffi .sizes{position:relative; width:100%; margin-top:40px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px;}
+.ffi .sizes::before, .ffi .sizes::after{content:""; position:absolute; left:calc((100% - 36px) / 8); right:calc((100% - 36px) / 8); height:3px; background:var(--wire);}
+.ffi .sizes::before{top:-23px;}
+.ffi .sizes::after{bottom:-23px;}
+.ffi .size{position:relative; background:var(--bg); border:2px solid var(--line-strong); border-radius:12px; padding:18px 10px 14px; text-align:center; display:flex; flex-direction:column; gap:4px; min-width:0;}
+.ffi .size b{font-stretch:var(--condensed); font-weight:700; font-size:44px; color:var(--ink); line-height:1;}
+.ffi .size > span{font-family:var(--mono); font-size:12.5px; color:var(--text);}
+.ffi .size.hl{border-color:var(--ink);}
+.ffi .size .in, .ffi .size .out{position:absolute; left:50%; width:3px; height:23px; background:var(--wire); transform:translateX(-50%);}
+.ffi .size .in{top:-25px;}
+.ffi .size .in::after{content:""; position:absolute; left:50%; bottom:-2px; transform:translateX(-50%);
+  border-left:7px solid transparent; border-right:7px solid transparent; border-top:9px solid var(--wire);}
+.ffi .size .out{bottom:-25px;}
+.ffi .size .tag{margin:12px 0 0; display:flex; flex-direction:column; gap:6px; font-family:var(--mono);}
+.ffi .size .tag div{display:flex; flex-direction:column; align-items:center; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:6px 4px;}
+.ffi .size .tag dt{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
+.ffi .size .tag dd{margin:0; font-size:15px; font-weight:700; color:var(--accent-deep);}
+.ffi .size .tag.quote{flex:1; justify-content:center;}
+.ffi .size .tag.quote div{flex:1; justify-content:center;}
 
 @media (max-width:820px){
-  .ffi .node{grid-template-columns:minmax(0,1fr); padding:20px;}
-  .ffi .node.big{padding:20px 20px 0;}
-  .ffi .big-top{grid-template-columns:minmax(0,1fr); gap:20px;}
+  .ffi .node{grid-template-columns:minmax(0,1fr);}
+  .ffi .node > .price{margin:0 20px 20px;}
+  .ffi .node > p, .ffi .node > .node-text{padding:18px 20px 12px;}
+  .ffi .node-id, .ffi .big-main > .node-id{padding:16px 20px; border-radius:9px 9px 0 0;}
+  .ffi .big-main{grid-template-columns:minmax(0,1fr);}
+  .ffi .big-main > .node-id{grid-row:auto;}
+  .ffi .big-main > p, .ffi .big-main > .svc{grid-column:1; padding-left:20px; padding-right:20px;}
+  .ffi .fan{padding:0 14px 40px;}
 }
 @media (max-width:520px){
   .ffi .sizes{gap:6px;}
   .ffi .sizes::before, .ffi .sizes::after{left:calc((100% - 18px) / 8); right:calc((100% - 18px) / 8);}
-  .ffi .size{padding:14px 4px;}
-  .ffi .size b{font-size:30px;}
-  .ffi .size span{font-size:11px;}
+  .ffi .size{padding:14px 3px 8px;}
+  .ffi .size b{font-size:32px;}
+  .ffi .size > span{font-size:10.5px;}
+  .ffi .size .tag div{padding:4px 2px; border:0; background:none;}
+  .ffi .size .tag dt{font-size:9.5px;}
+  .ffi .size .tag dd{font-size:12px;}
 }
 
 .ffi .points{font-family:var(--mono); font-size:14px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:grid; grid-template-columns:1fr auto; gap:8px 16px; margin-top:22px;}

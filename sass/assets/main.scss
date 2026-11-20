@@ -9,10 +9,14 @@
   --band: #ECE8E4;
   --fg: #1B1B1B;          // logo ink
   --ink: #1B1B1B;
-  --muted: #625C56;
+  --text: #2C2825;        // body copy on light surfaces
+  --muted: #514B46;
   --line: #D8D2CC;
+  --line-strong: #B3AAA1;
   --accent: #B4471A;      // rust, used sparingly
   --accent-ink: #FFFFFF;
+  --accent-soft: #F6E1D6;
+  --accent-deep: #8E3412;
   --go: #22804E; --go-soft: #DDF0E5;
   --warn: #C68A00; --warn-soft: #F8EDCF;
   --stop: #BE3A2C; --stop-soft: #F8E0DC;

@@ -7,6 +7,7 @@
     </a>
     <nav class="site-nav" aria-label="Main">
       <a href="{{ home }}#services">Services</a>
+      <a href="{{ get_url(path='@/ffi.md') }}"{% if current_path == "/ffi/" %} aria-current="page"{% endif %}>FFI</a>
       <a href="{{ home }}#why-rust">Why Rust</a>
       <a href="{{ home }}#about">About</a>
       <a class="btn sm" href="{{ home }}#book-a-free-call">Book a free call</a>

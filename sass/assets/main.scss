@@ -97,7 +97,8 @@ h1 em, h2 em { font-style: normal; color: var(--accent); }
 .brand-tag { font-size: 13px; line-height: 1.2; color: var(--muted); font-stretch: 87.5%; }
 .site-nav { display: flex; align-items: center; gap: 26px; }
 .site-nav a:not(.btn) { font-size: 15px; color: var(--muted); text-decoration: none; }
-.site-nav a:not(.btn):hover { color: var(--fg); }
+.site-nav a:not(.btn):hover, .site-nav a[aria-current] { color: var(--fg); }
+.site-nav a[aria-current] { font-weight: 600; }
 @media (max-width: 780px) { .site-nav a:not(.btn) { display: none; } }
 @media (max-width: 380px) { .brand-tag { display: none; } }
 
@@ -164,6 +165,28 @@ section.band { background: var(--band); }
 .card p { color: var(--muted); font-size: 15.5px; }
 .card .arrow { margin-top: auto; align-self: flex-start; font-size: 15px; }
 .bug code { font-size: 12.5px; background: var(--stop-soft); color: var(--stop); padding: 2px 7px; border-radius: 5px; align-self: flex-start; }
+
+// Product banner under the service cards (links to a landing page)
+.offer {
+  margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px 48px;
+  background: var(--ink); color: var(--bg); border-radius: 12px; padding: 32px; text-decoration: none;
+  border: 2px solid var(--ink); transition: border-color .15s;
+}
+.offer:hover { border-color: var(--accent); }
+.offer .eyebrow { color: #E39A78; }
+.offer h3 { margin-top: 12px; font-size: clamp(28px, 3.4vw, 40px); font-stretch: var(--condensed); font-weight: 700; text-transform: uppercase; line-height: 1; }
+.offer h3 em { font-style: normal; color: #E8865A; }
+.offer-copy p { margin-top: 14px; color: #D6CFC8; font-size: 16px; max-width: 52ch; }
+.offer-steps { list-style: none; display: flex; flex-direction: column; gap: 0; align-self: center; }
+.offer-steps li { display: flex; gap: 14px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid #3A3633; font-weight: 600; }
+.offer-steps li:last-child { border-bottom: 0; }
+.offer-steps li:first-child { color: #E8865A; }
+.offer-steps span { font-family: var(--mono); font-size: 12.5px; color: #9A928A; font-weight: 400; }
+.offer-foot { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid #3A3633; }
+.offer-price { font-family: var(--mono); font-size: 13.5px; font-weight: 600; background: var(--accent); color: #fff; border-radius: 6px; padding: 6px 12px; }
+.offer-cta { font-weight: 600; }
+.offer:hover .offer-cta { color: #E8865A; }
+@media (max-width: 860px) { .offer { grid-template-columns: minmax(0, 1fr); padding: 24px; } }
 
 // Ruled columns (top border, no box)
 .ruled > div { border-top: 3px solid var(--ink); padding-top: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }

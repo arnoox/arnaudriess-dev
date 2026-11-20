@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">{{ section.extra.eyebrow or "Blog" }}</div>
+    <h1>{{ section.title }}</h1>
+    {%- if section.description %}<p class="lede">{{ section.description }}</p>{% endif %}
+  </div>
+</section>
+<section class="page-body">
+  <div class="wrap">
+    {%- if section.pages | length == 0 %}
+    <p class="muted">First posts coming soon.</p>
+    {%- else %}
+    <ul class="post-list">
+      {%- for p in section.pages %}
+      <li>
+        <time datetime="{{ p.date }}">{{ p.date | date(format="%d %b %Y") }}</time>
+        <h2><a href="{{ p.permalink }}">{{ p.title }}</a></h2>
+        {%- if p.description %}<p>{{ p.description }}</p>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</section>
+{% endblock main %}

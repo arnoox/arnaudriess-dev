@@ -48,6 +48,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=JetBrains+Mono:wght@400;600&display=swap">
   <link rel="stylesheet" href="{{ get_url(path='assets/main.css') }}">
+  <link rel="alternate" type="application/atom+xml" title="Blog" href="{{ get_url(path='blog/atom.xml') }}">
   {%- block styles %}{% endblock styles %}
   {%- if config.extra.umami_website_id %}
   <script defer src="https://cloud.umami.is/script.js" data-website-id="{{ config.extra.umami_website_id }}"></script>

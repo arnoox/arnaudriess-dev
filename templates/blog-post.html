@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block main %}
+<article>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow"><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a> · <time datetime="{{ page.date }}">{{ page.date | date(format="%d %b %Y") }}</time> · {{ page.reading_time }} min read</div>
+      <h1 class="post-title">{{ page.title }}</h1>
+      {%- if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+    </div>
+  </section>
+  <section class="page-body">
+    <div class="wrap"><div class="prose">
+      {{ page.content | safe }}
+    </div>
+    <div class="post-cta">
+      <p>Working on safety-critical or embedded Rust? Let's talk.</p>
+      <a class="btn" href="https://cal.com/{{ config.extra.cal_com_username }}">Book a free call</a>
+    </div></div>
+  </section>
+</article>
+{% endblock main %}

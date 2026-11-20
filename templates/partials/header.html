@@ -10,6 +10,7 @@
       <a href="{{ get_url(path='@/ffi.md') }}"{% if current_path == "/ffi/" %} aria-current="page"{% endif %}>FFI</a>
       <a href="{{ home }}#why-rust">Why Rust</a>
       <a href="{{ home }}#about">About</a>
+      <a href="{{ get_url(path='@/blog/_index.md') }}"{% if current_path and "/blog/" in current_path %} aria-current="page"{% endif %}>Blog</a>
       <a class="btn sm" href="{{ home }}#book-a-free-call">Book a free call</a>
     </nav>
   </div>

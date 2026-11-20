@@ -7,10 +7,15 @@ author = "Arnaud Riess"
 compile_sass = true
 minify_html = false
 generate_feeds = false
+feed_filenames = ["atom.xml"]
 build_search_index = false
 
 [markdown]
 smart_punctuation = false
+github_alerts = true
+
+[markdown.highlighting]
+theme = "github-dark"
 
 [extra]
 github_username = "arnoox"

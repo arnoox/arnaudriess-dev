@@ -200,11 +200,11 @@ section.band { background: var(--band); }
 
 // About
 .about { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
-.about .logo { width: 132px; height: 132px; border-radius: 4px; }
+.about .photo { width: 160px; height: 160px; border-radius: 4px; object-fit: cover; }
 .about .copy { display: flex; flex-direction: column; gap: 16px; max-width: 68ch; }
 .about .copy p { color: var(--muted); }
 .about .copy strong { color: var(--fg); }
-@media (max-width: 600px) { .about { grid-template-columns: 1fr; gap: 24px; } .about .logo { width: 96px; height: 96px; } }
+@media (max-width: 600px) { .about { grid-template-columns: 1fr; gap: 24px; } .about .photo { width: 112px; height: 112px; } }
 
 // Final call to action (ink, like the logo block)
 .final { background: var(--ink); color: var(--bg); }

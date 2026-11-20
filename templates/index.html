@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Safety-critical Rust · ISO 26262 · IEC 61508 · IEC 62304</div>
+      <h1>Safety-critical software development is <em>hard enough.</em></h1>
+      <p class="lede"><strong>Bugs in production cost time, money, and trust</strong>, especially in safety-critical systems.
+        I help teams catch errors early, simplify verification, and build reliable software faster.</p>
+      <div class="cta">
+        <a class="btn" href="#book-a-free-call">Book a free call</a>
+        <a class="btn ghost" href="#services">What I do</a>
+      </div>
+      <p class="fine">Stuttgart, Germany, and worldwide · English, Deutsch, Français</p>
+    </div>
+
+    <div class="diff" role="img" aria-label="Rust compiler error: a CAN frame is used after it was moved to another task. The compiler rejects the code.">
+      <div class="top"><span class="dots"><i></i><i></i><i></i></span><span>cargo build · gateway</span></div>
+      <div class="scroll">
+<pre><span class="bad">error[E0382]</span><span class="hl">: borrow of moved value: `frame`</span>
+<span class="dim">  --&gt;</span> src/gateway.rs:42:23
+<span class="dim">   |</span>
+<span class="dim">39 |</span>     let frame = can.receive()?;
+<span class="dim">   |</span>         <span class="dim">-----</span> <span class="dim">move occurs because `frame` has type `CanFrame`</span>
+<span class="dim">40 |</span>     tx.send(frame)?;
+<span class="dim">   |</span>             <span class="dim">-----</span> <span class="dim">value moved here</span>
+<span class="dim">41 |</span>
+<span class="dim">42 |</span>     log::debug!("{}", frame.id());
+<span class="dim">   |</span>                       <span class="bad">^^^^^ value borrowed here after move</span></pre>
+      </div>
+      <div class="verdict ok"><span>✓</span><span><b>Caught at compile time.</b> In C, the same mistake builds cleanly and turns up in integration, or in the field.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="why-rust">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Why Rust</div>
+      <h2>Correctness at compile time.</h2>
+      <p class="lede">Rust brings correctness to compile time: deterministic behavior, strong typing, and memory and thread safety.
+        It aligns naturally with functional safety standards, enabling earlier validation and lower development cost.</p>
+      <div class="tags strong"><span>IEC 61508</span><span>ISO 26262</span><span>IEC 62304</span></div>
+    </div>
+    <div class="grid4 ruled">
+      <div><b>Early error detection</b><p>Memory and concurrency errors fail the build instead of the integration test.</p></div>
+      <div><b>Deterministic, safe code</b><p>No garbage collector, no hidden runtime, no undefined behavior in safe code.</p></div>
+      <div><b>Less testing overhead</b><p>The compiler rules out whole classes of defects, so tests can focus on behavior.</p></div>
+      <div><b>Faster integration cycles</b><p>Fewer surprises when components meet, on the bench and on the target.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">What I do</div>
+      <h2>Consulting, training, development.</h2>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Consulting</h3>
+        <p>Rust adoption, architecture, and certification workflows for functional safety. I advise managers on ROI and
+          long-term efficiency, reducing costs and speeding delivery.</p>
+        <a class="arrow" href="#book-a-free-call">Book a free call ⟶</a>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Training</h3>
+        <p>Hands-on Rust workshops for embedded and safety engineers.</p>
+        <a class="arrow" href="#book-a-free-call">Plan a workshop ⟶</a>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Development</h3>
+        <p>Production-ready Rust, porting legacy code, and mixed C/C++/Rust integration.</p>
+        <a class="arrow" href="#book-a-free-call">Discuss a project ⟶</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <img class="logo" src="{{ get_url(path='assets/logo.svg') }}" width="132" height="132" alt="Arnaud Riess">
+    <div class="copy">
+      <div class="eyebrow">About me</div>
+      <h2>Arnaud Riess</h2>
+      <p>I’m <strong>Arnaud Riess</strong>, with 15+ years in automotive and safety-critical embedded systems (ISO 26262).
+        From Classic/Adaptive AUTOSAR to ADAS middleware and RTOS development in C and C++, I’ve seen the good, the bad,
+        and the <s>ugly</s> rusty 🦀.</p>
+      <p>I now help organizations modernize their safety-critical software and toolchains using Rust.
+        <strong>Industries:</strong> Automotive, MedTech, Aerospace, and beyond. Available for projects and workshops in
+        Stuttgart, Germany, and worldwide.</p>
+      <div class="tags"><span>Embedded Rust</span><span>AUTOSAR Classic / Adaptive</span><span>ADAS</span><span>RTOS</span><span>C / C++</span><span>Functional safety</span></div>
+      <p class="muted">Fluent: 🇬🇧 English, 🇩🇪 German and 🇫🇷 French.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="book-a-free-call">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2 style="margin-top:16px">Book a free call.</h2>
+        <p>Thirty minutes about your project, your toolchain or your path to certification. Pick a slot below.</p>
+      </div>
+      <div class="mail">
+        <small>Prefer to write?</small>
+        <span class="addr">{{ <email /> }}</span>
+      </div>
+    </div>
+    <div class="cal-card">
+      <div style="width:100%;min-height:500px;overflow:auto" id="my-cal-inline-30min"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Cal inline embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", {origin:"https://app.cal.com"});
+  Cal.ns["30min"]("inline", {
+    elementOrSelector:"#my-cal-inline-30min",
+    config: {"layout":"week_view","theme":"light"},
+    calLink: "{{ config.extra.cal_com_username }}/30min",
+  });
+  Cal.ns["30min"]("ui", {"hideEventTypeDetails":true,"layout":"week_view","theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#1B1B1B"}}});
+</script>
+<!-- Cal inline embed code ends -->
+{% endblock main %}

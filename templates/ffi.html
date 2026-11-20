@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{#- Draft: noindex, not in the sitemap, not linked from the header or footer. -#}
+{% block styles %}
+    <link rel="stylesheet" href="{{ get_url(path='assets/ffi.css') }}">
+{% endblock styles %}
+{% block main %}
+<div class="ffi">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Rust ↔ C FFI · ISO 26262 · IEC 61508</div>
+      <h1>Your Rust and C boundary, <em>proven</em>.</h1>
+      <p class="lede">You don't buy a tool. You buy evidence your safety assessor accepts: an audited binding, a fixed price
+        before you commit, and checks in your own CI that tell you when it's still valid.</p>
+      <div class="cta">
+        <a class="btn" href="#start">Send us your binding</a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+      <p class="fine">Start with a Binding Assessment: €1,200 fixed, credited when you order.</p>
+    </div>
+
+    <div class="diff" role="img" aria-label="Layout check: the C build and the Rust binding disagree on the size of a struct">
+      <div class="top"><span>layout check · mbedtls_ssl_config</span><span>finding F-03</span></div>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>field</th><th style="text-align:right">C offset</th><th style="text-align:right">Rust offset</th></tr></thead>
+          <tbody>
+            <tr><td>endpoint</td><td class="n">0</td><td class="n">0</td></tr>
+            <tr><td>f_rng</td><td class="n">8</td><td class="n">8</td></tr>
+            <tr><td>p_rng</td><td class="n">16</td><td class="n">16</td></tr>
+            <tr><td>ciphersuite_list</td><td class="n">24</td><td class="n">24</td></tr>
+            <tr class="bad"><td>max_tls_version</td><td class="n">40</td><td class="n">32</td></tr>
+            <tr class="bad"><td>sizeof(config)</td><td class="n">432</td><td class="n">424</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="verdict"><span>✗</span><span><b>Layout mismatch.</b> bindgen ran with a different config header than the C build. It compiled, it passed the lab tests, and it was wrong.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">The problem</div>
+      <h2>Generated bindings compile. That isn't proof.</h2>
+      <p class="lede">bindgen and cbindgen do the mechanical part well. The risk sits where the two languages make
+        different promises, and the compiler can't see it.</p>
+    </div>
+    <div class="grid3">
+      <div class="card bug"><code>use after free</code><h3>Ownership across the line</h3><p>Rust drops an object while the C side still holds a pointer to it.</p></div>
+      <div class="card bug"><code>undefined behavior</code><h3>Panics into C</h3><p>A Rust callback panics and unwinds into C code that was never built for it.</p></div>
+      <div class="card bug"><code>size mismatch</code><h3>Two views of one struct</h3><p>Different flags or config headers give each side its own idea of the layout.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">How it works</div>
+      <h2>One door, then fixed prices all the way.</h2>
+      <p class="lede">Every step ends with a fixed price for the next one. You always know the number before you say yes.</p>
+    </div>
+    <ol class="flow">
+      <li class="node door">
+        <div class="node-id"><span class="num">01</span><h3>Binding Assessment</h3></div>
+        <p>Send the crate or headers. In two working days: size class, first risks, fixed price.</p>
+        <div class="price">€1,200 · credited</div>
+      </li>
+
+      <li class="node big">
+        <div class="big-top">
+          <div class="big-main">
+            <div class="node-id"><span class="num">02</span><h3>Audit or Build</h3></div>
+            <p>We audit your binding, or build one with the audit report included.</p>
+            <div class="svc">
+              <div><b>Audit</b><span>You have a binding. You get a report with every finding, its severity and a fixed fix price.</span></div>
+              <div><b>Build</b><span>You have headers or a crate. You get the binding, checked against the same list, report included.</span></div>
+            </div>
+          </div>
+          <div class="big-side">
+            <div class="eyebrow">Sizing</div>
+            <h4>Priced by what crosses the boundary.</h4>
+            <p>The assessment counts surface points. One number decides the size class, and the size
+              class decides the price. No hourly guessing.</p>
+            <div class="points" aria-label="How surface points are counted">
+              <span>exported function</span><span class="w">1 pt</span>
+              <span>callback</span><span class="w">+ weight</span>
+              <span>ownership crossing the boundary</span><span class="w">+ weight</span>
+              <span>threads, unions</span><span class="w">+ weight</span>
+            </div>
+          </div>
+        </div>
+        <div class="fan">
+          <div class="price">fixed by size</div>
+          <div class="sizes">
+            <div class="size"><i class="in"></i><b>S</b><span>≤ 60 pts</span><i class="out"></i></div>
+            <div class="size hl"><i class="in"></i><b>M</b><span>≤ 150 pts</span><i class="out"></i></div>
+            <div class="size"><i class="in"></i><b>L</b><span>≤ 300 pts</span><i class="out"></i></div>
+            <div class="size"><i class="in"></i><b>XL</b><span>C++, several libs</span><i class="out"></i></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="node">
+        <div class="node-id"><span class="num">03</span><h3>Fix</h3></div>
+        <div class="node-text">
+          <p>Every finding in the report comes with a fixed price. Pick some, or fix everything.</p>
+          <p class="more">Findings fixed and re-checked. Single items or the fix-everything package.</p>
+        </div>
+        <div class="price">fixed per finding</div>
+      </li>
+
+      <li class="node">
+        <div class="node-id"><span class="num">04</span><h3>Target Qualification</h3></div>
+        <p>Proof on your compiler, version, flags and hardware.</p>
+        <div class="price">per configuration</div>
+      </li>
+
+      <li class="node">
+        <div class="node-id"><span class="num">05</span><h3>Subscription</h3></div>
+        <p>Keep the proof valid as libraries and toolchains move.</p>
+        <div class="price">monthly · cancel any time</div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="gate">
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Binding gate</div>
+      <h2 style="margin-top:14px">You stay in control. Call us only when it matters.</h2>
+      <p class="lede" style="margin-top:14px">With every audit or build, the checks move into your own pipeline. Your team regenerates,
+        the gate decides.</p>
+      <ul class="checks">
+        <li>Pinned bindgen or cbindgen version and configuration</li>
+        <li>Layout and ABI checks against your real C build</li>
+        <li>Rules that flag changes to callbacks, ownership and <code>unsafe</code></li>
+        <li>Half-day handover so your team knows why each check exists</li>
+      </ul>
+    </div>
+    <div class="lights">
+      <div class="light"><span class="lamp g"></span><div><b>Green</b><span>All checks pass. Merge. No call needed.</span></div></div>
+      <div class="light"><span class="lamp y"></span><div><b>Yellow</b><span>A risky area changed. Follow the rules, or send the diff to us for review.</span></div></div>
+      <div class="light"><span class="lamp r"></span><div><b>Red</b><span>The scope changed: new compiler, new target. Time to requalify.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Target Qualification</div>
+      <h2 style="margin-top:14px">A proof names its compiler.</h2>
+      <p class="lede" style="margin-top:14px">A binding proven with one compiler says nothing about the next one. So every report ends
+        with a scope statement, and each target configuration is qualified on its own.</p>
+      <div class="facts">
+        <div><b>Configuration</b><span>Compiler, version, flags and hardware</span></div>
+        <div><b>You provide</b><span>Licenses and board or remote access. The fixed price starts when everything is in place.</span></div>
+        <div><b>Setup</b><span>Hourly, capped at two days</span></div>
+        <div><b>No board yet</b><span>We qualify on a simulator and say so in the report</span></div>
+      </div>
+    </div>
+    <pre class="scope"><span class="k">scope_statement:</span>
+  binding:   <span class="ok">nordwerk-mbedtls-sys 0.4.2</span>
+  headers:   sha256:9f3c…e71a
+  rustc:     1.86.0, opt-level=s, panic=abort
+  cc:        arm-none-eabi-gcc 13.2, -Os
+  config:    mbedtls_config_gw.h
+  target:    Cortex-M7 board, rev C
+  <span class="k">result:</span>    <span class="ok">47/47 obligations discharged</span>
+  <span class="k">valid for:</span> this configuration only</pre>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sub">
+      <div>
+        <div class="eyebrow">Subscription</div>
+        <h2 style="margin-top:14px">Keep the proof valid.</h2>
+        <p class="lede" style="margin-top:14px">Libraries ship security updates. Compilers move on. Starting at delivery, one flat monthly
+          fee keeps an expert on your side, and you can cancel any time.</p>
+      </div>
+      <div>
+        <ul>
+          <li>Monthly call with the engineer who audited your binding</li>
+          <li>Answers within two working days</li>
+          <li>Review of every yellow change</li>
+          <li>Alerts on compiler bugs and Rust advisories that affect you</li>
+          <li>Binding gate kept current</li>
+        </ul>
+        <p class="not">Advice and review. Code changes and requalifications are quoted separately.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="example">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Example · fictional</div>
+      <h2>A year with an Mbed TLS binding.</h2>
+      <p class="lede">An automotive supplier builds a Rust gateway on Mbed TLS. The binding works in the lab, but nobody can prove it.
+        140 surface points, size M.</p>
+    </div>
+    <div class="story">
+      <div><span class="when">Weeks 1–5</span><b>Assess, audit, fix</b><p>11 findings, 3 critical. Fixed with the fix-everything package.</p></div>
+      <div><span class="when">Months 2–3</span><b>Qualified on target</b><p>Board arrived three weeks late. The fixed price didn't move. The assessor accepted the report.</p></div>
+      <div class="y"><span class="when">Month 4</span><b>Library update</b><p>Gate turned yellow on one struct. Two hours of review, fixed by their own team.</p></div>
+      <div class="r"><span class="when">Month 7</span><b>New compiler</b><p>Gate turned red. Requalified at a fixed price. Still proven a year later.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <img class="logo" src="{{ get_url(path='assets/logo.svg') }}" width="132" height="132" alt="Arnaud Riess">
+    <div class="copy">
+      <div class="eyebrow">Who you work with</div>
+      <h2>Arnaud Riess</h2>
+      <p>Independent consultant for safety-critical Rust. I help teams bring Rust into
+        functional-safety projects: embedded Rust, FFI safety, toolchains and formal verification. Seamproof is that
+        experience packaged as a fixed outcome. More about me on the <a href="/">home page</a>.</p>
+      <div class="tags"><span>Embedded Rust</span><span>ISO 26262</span><span>IEC 61508</span><span>FFI safety</span><span>bindgen / cbindgen</span><span>Formal verification</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="start">
+  <div class="wrap split">
+    <div>
+      <h2>Start with the assessment.</h2>
+      <p>Send your crate or your headers. In two working days you know your size class, the first risks and the fixed price.
+        €1,200, credited when you order.</p>
+    </div>
+    <div class="mail">
+      <small>Book a call, or send your binding to</small>
+      <span class="addr">{{ <email /> }}</span>
+      <a class="btn" href="https://cal.com/{{ config.extra.cal_com_username }}">Book a free call</a>
+    </div>
+  </div>
+</section>
+</div>
+{% endblock main %}

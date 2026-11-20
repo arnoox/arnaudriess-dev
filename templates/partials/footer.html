@@ -1,0 +1,36 @@
+{%- set impressum = get_page(path="impressum.md") -%}
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="f-brand">
+        <img src="{{ get_url(path='assets/logo.svg') }}" width="64" height="64" alt="Arnaud Riess">
+        <p>{{ config.description }}</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>{{ <email /> }}</li>
+          <li><a href="https://cal.com/{{ config.extra.cal_com_username }}">Book a free call</a></li>
+          <li class="muted">Stuttgart, Germany</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a rel="noopener" href="https://www.linkedin.com/in/{{ config.extra.linkedin_username }}">LinkedIn</a></li>
+          <li><a rel="noopener" href="https://github.com/{{ config.extra.github_username }}">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="{{ impressum.permalink }}">{{ impressum.title }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© {{ now() | date(format="%Y") }} {{ config.author }}</span>
+      <span>⟶ arnaudriess.dev</span>
+    </div>
+  </div>
+</footer>

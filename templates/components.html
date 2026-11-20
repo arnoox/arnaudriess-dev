@@ -1,0 +1,6 @@
+{#- Email link. The address is split so it never appears as one plain string in the source. -#}
+{% component email(class="", label="") -%}
+{%- set user = "hi" -%}
+{%- set domain = "arnaudriess.dev" -%}
+<a class="u-email {{ class }}" href="mailto:{{ user }}&#64;{{ domain }}">{% if label %}{{ label }}{% else %}{{ user }}&#64;{{ domain }}{% endif %}</a>
+{%- endcomponent email %}

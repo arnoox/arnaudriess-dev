@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://arnaudriess.dev/sitemap.xml

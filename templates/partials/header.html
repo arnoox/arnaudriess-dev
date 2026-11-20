@@ -1,0 +1,15 @@
+{%- set home = config.base_url ~ "/" -%}
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ home }}" aria-label="Arnaud Riess, home">
+      <img src="{{ get_url(path='assets/logo.svg') }}" width="44" height="44" alt="">
+      <span class="brand-tag">Safety-Critical<br>Rust Consultant</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="{{ home }}#services">Services</a>
+      <a href="{{ home }}#why-rust">Why Rust</a>
+      <a href="{{ home }}#about">About</a>
+      <a class="btn sm" href="{{ home }}#book-a-free-call">Book a free call</a>
+    </nav>
+  </div>
+</header>

@@ -23,3 +23,11 @@ linkedin_username = "arnaud-riess"
 cal_com_username = "arnaud-riess-dev"
 # Umami Cloud (cookie-free). Leave empty to disable.
 umami_website_id = "18d7ff10-f9cc-4511-9fd0-52bc970e3955"
+
+# Single source of truth for every price shown on the site (EUR, plain numbers).
+# Templates format them, e.g. €{{ config.extra.prices.assessment | num_format }} → €2,400.
+# Business source: Products/FFI-Guard-Kit/FFI-Boundary-Assurance-Offer.md in the vault.
+[extra.prices]
+assessment = 2400
+audit = { s = 5500, m = 12500, l = 27000 }
+build = { s = 14000, m = 31000, l = 67000 }

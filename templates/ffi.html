@@ -16,7 +16,7 @@
         <a class="btn" href="#start">Send me your binding</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
-      <p class="fine">Start with a Binding Assessment: €1,200 fixed, deducted from your audit or build.</p>
+      <p class="fine">Start with a Binding Assessment: €{{ config.extra.prices.assessment | num_format }} fixed, deducted from your audit or build.</p>
     </div>
 
     <div class="diff" role="img" aria-label="Layout check: the C build and the Rust binding disagree on the size of a struct">
@@ -66,7 +66,7 @@
       <li class="node door">
         <div class="node-id"><span class="num">01</span><h3>Binding Assessment</h3></div>
         <p>Send me the crate or the headers. Within two working days you get the size class, the first risks and a fixed price.</p>
-        <div class="price">€1,200 · deducted later</div>
+        <div class="price">€{{ config.extra.prices.assessment | num_format }} · deducted later</div>
       </li>
 
       <li class="node big">
@@ -83,9 +83,9 @@
         <div class="fan">
           <div class="price">fixed by size</div>
           <div class="sizes">
-            <div class="size"><i class="in"></i><b>S</b><span>≤ 60 pts</span><dl class="tag"><div><dt>audit</dt><dd>€4,000</dd></div><div><dt>build</dt><dd>€10,000</dd></div></dl><i class="out"></i></div>
-            <div class="size hl"><i class="in"></i><b>M</b><span>≤ 150 pts</span><dl class="tag"><div><dt>audit</dt><dd>€8,500</dd></div><div><dt>build</dt><dd>€21,000</dd></div></dl><i class="out"></i></div>
-            <div class="size"><i class="in"></i><b>L</b><span>≤ 300 pts</span><dl class="tag"><div><dt>audit</dt><dd>€18,000</dd></div><div><dt>build</dt><dd>€45,000</dd></div></dl><i class="out"></i></div>
+            <div class="size"><i class="in"></i><b>S</b><span>≤ 60 pts</span><dl class="tag"><div><dt>audit</dt><dd>€{{ config.extra.prices.audit.s | num_format }}</dd></div><div><dt>build</dt><dd>€{{ config.extra.prices.build.s | num_format }}</dd></div></dl><i class="out"></i></div>
+            <div class="size hl"><i class="in"></i><b>M</b><span>≤ 150 pts</span><dl class="tag"><div><dt>audit</dt><dd>€{{ config.extra.prices.audit.m | num_format }}</dd></div><div><dt>build</dt><dd>€{{ config.extra.prices.build.m | num_format }}</dd></div></dl><i class="out"></i></div>
+            <div class="size"><i class="in"></i><b>L</b><span>≤ 300 pts</span><dl class="tag"><div><dt>audit</dt><dd>€{{ config.extra.prices.audit.l | num_format }}</dd></div><div><dt>build</dt><dd>€{{ config.extra.prices.build.l | num_format }}</dd></div></dl><i class="out"></i></div>
             <div class="size"><i class="in"></i><b>XL</b><span>C++, several libs</span><dl class="tag quote"><div><dt>audit · build</dt><dd>on quote</dd></div></dl><i class="out"></i></div>
           </div>
         </div>
@@ -221,7 +221,7 @@
     <div>
       <h2>Start with the assessment.</h2>
       <p>Send your crate or your headers. In two working days you know your size class, the first risks and the fixed price.
-        €1,200, deducted from your audit or build.</p>
+        €{{ config.extra.prices.assessment | num_format }}, deducted from your audit or build.</p>
     </div>
     <div class="mail">
       <small>Book a call, or send your binding to</small>

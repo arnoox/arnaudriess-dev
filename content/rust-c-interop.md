@@ -5,7 +5,7 @@ path = "rust-c-interop"
 aliases = ["ffi"]
 
 [extra]
-html_title = "Seamproof: proven Rust and C bindings"
+html_title = "Rust ↔ C interop: proven Rust and C bindings"
 noindex = true
 sitemap = false
 +++

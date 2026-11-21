@@ -1,6 +1,6 @@
 base_url = "https://arnaudriess.dev"
 title = "Arnaud Riess - Safety-Critical Rust Consultant"
-description = "I offer professional consulting, development, and training services in Embedded and Safety-Critical Rust. Helping businesses and developers build reliable, efficient, and safe software with Rust. Available for projects and workshops."
+description = "Consulting, training and development for embedded and safety-critical Rust. Based in Stuttgart, working with teams worldwide."
 default_language = "en"
 author = "Arnaud Riess"
 

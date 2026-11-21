@@ -10,10 +10,10 @@
     <div>
       <div class="eyebrow">Rust ↔ C interop · ISO 26262 · IEC 61508</div>
       <h1>Your Rust and C boundary, <em>proven</em>.</h1>
-      <p class="lede">You don't buy a tool. You buy evidence your safety assessor accepts: an audited binding, a fixed price
-        before you commit, and checks in your own CI that tell you when it's still valid.</p>
+      <p class="lede">At the end you have evidence your safety assessor accepts. You know the price before you commit,
+        and checks in your own CI tell you when the evidence is still valid.</p>
       <div class="cta">
-        <a class="btn" href="#start">Send us your binding</a>
+        <a class="btn" href="#start">Send me your binding</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
       <p class="fine">Start with a Binding Assessment: €1,200 fixed, deducted from your audit or build.</p>
@@ -43,9 +43,9 @@
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">The problem</div>
-      <h2>Generated bindings compile. That isn't proof.</h2>
-      <p class="lede">bindgen and cbindgen do the mechanical part well. The risk sits where the two languages make
-        different promises, and the compiler can't see it.</p>
+      <h2>Generated bindings compile, and can still be wrong.</h2>
+      <p class="lede">bindgen and cbindgen do the mechanical part well. The bugs hide where Rust and C make
+        different promises, and no compiler checks that.</p>
     </div>
     <div class="grid3">
       <div class="card bug"><code>use after free</code><h3>Ownership across the line</h3><p>Rust drops an object while the C side still holds a pointer to it.</p></div>
@@ -59,13 +59,13 @@
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">How it works</div>
-      <h2>One door, then fixed prices all the way.</h2>
-      <p class="lede">Every step ends with a fixed price for the next one. You always know the number before you say yes.</p>
+      <h2>A fixed price at every step.</h2>
+      <p class="lede">Each step ends with the price of the next one, so you know the number before you say yes.</p>
     </div>
     <ol class="flow">
       <li class="node door">
         <div class="node-id"><span class="num">01</span><h3>Binding Assessment</h3></div>
-        <p>Send the crate or headers. In two working days: size class, first risks, fixed price.</p>
+        <p>Send me the crate or the headers. Within two working days you get the size class, the first risks and a fixed price.</p>
         <div class="price">€1,200 · deducted later</div>
       </li>
 
@@ -73,7 +73,7 @@
         <div class="big-top">
           <div class="big-main">
             <div class="node-id"><span class="num">02</span><h3>Audit or Build</h3></div>
-            <p>We audit your binding, or build one with the audit report included.</p>
+            <p>I audit your existing binding, or build a new one. The audit report is included either way.</p>
             <div class="svc">
               <div><b>Audit</b><span>You have a binding. You get a report with every finding, its severity and a fixed fix price.</span></div>
               <div><b>Build</b><span>You have headers or a crate. You get the binding, checked against the same list, report included.</span></div>
@@ -95,20 +95,20 @@
         <div class="node-id"><span class="num">03</span><h3>Fix</h3></div>
         <div class="node-text">
           <p>Every finding in the report comes with a fixed price. Pick some, or fix everything.</p>
-          <p class="more">Findings fixed and re-checked. Single items or the fix-everything package.</p>
+          <p class="more">I fix and re-check them. Choose single findings or the fix-everything package.</p>
         </div>
         <div class="price">fixed per finding</div>
       </li>
 
       <li class="node">
         <div class="node-id"><span class="num">04</span><h3>Target Qualification</h3></div>
-        <p>Proof on your compiler, version, flags and hardware.</p>
+        <p>I prove the binding on your compiler, version, flags and hardware.</p>
         <div class="price">per configuration</div>
       </li>
 
       <li class="node">
         <div class="node-id"><span class="num">05</span><h3>Subscription</h3></div>
-        <p>Keep the proof valid as libraries and toolchains move.</p>
+        <p>Libraries and toolchains change. This keeps the proof valid.</p>
         <div class="price">monthly · cancel any time</div>
       </li>
     </ol>
@@ -119,9 +119,9 @@
   <div class="wrap two">
     <div>
       <div class="eyebrow">Binding gate</div>
-      <h2 style="margin-top:14px">You stay in control. Call us only when it matters.</h2>
-      <p class="lede" style="margin-top:14px">With every audit or build, the checks move into your own pipeline. Your team regenerates,
-        the gate decides.</p>
+      <h2 style="margin-top:14px">The checks run in your CI. You call me only when needed.</h2>
+      <p class="lede" style="margin-top:14px">Every audit or build comes with a binding gate for your pipeline. Your team regenerates
+        the binding, and the gate tells you if it is still fine.</p>
       <ul class="checks">
         <li>Pinned bindgen or cbindgen version and configuration</li>
         <li>Layout and ABI checks against your real C build</li>
@@ -131,7 +131,7 @@
     </div>
     <div class="lights">
       <div class="light"><span class="lamp g"></span><div><b>Green</b><span>All checks pass. Merge. No call needed.</span></div></div>
-      <div class="light"><span class="lamp y"></span><div><b>Yellow</b><span>A risky area changed. Follow the rules, or send the diff to us for review.</span></div></div>
+      <div class="light"><span class="lamp y"></span><div><b>Yellow</b><span>A risky area changed. Follow the rules, or send me the diff for review.</span></div></div>
       <div class="light"><span class="lamp r"></span><div><b>Red</b><span>The scope changed: new compiler, new target. Time to requalify.</span></div></div>
     </div>
   </div>
@@ -141,14 +141,14 @@
   <div class="wrap two">
     <div>
       <div class="eyebrow">Target Qualification</div>
-      <h2 style="margin-top:14px">A proof names its compiler.</h2>
-      <p class="lede" style="margin-top:14px">A binding proven with one compiler says nothing about the next one. So every report ends
+      <h2 style="margin-top:14px">A proof is valid for one compiler.</h2>
+      <p class="lede" style="margin-top:14px">Each proof holds for one compiler. So every report ends
         with a scope statement, and each target configuration is qualified on its own.</p>
       <div class="facts">
         <div><b>Configuration</b><span>Compiler, version, flags and hardware</span></div>
         <div><b>You provide</b><span>Licenses and board or remote access. The fixed price starts when everything is in place.</span></div>
         <div><b>Setup</b><span>Hourly, capped at two days</span></div>
-        <div><b>No board yet</b><span>We qualify on a simulator and say so in the report</span></div>
+        <div><b>No board yet</b><span>I qualify on a simulator and say so in the report</span></div>
       </div>
     </div>
     <pre class="scope"><span class="k">scope_statement:</span>
@@ -168,13 +168,13 @@
     <div class="sub">
       <div>
         <div class="eyebrow">Subscription</div>
-        <h2 style="margin-top:14px">Keep the proof valid.</h2>
-        <p class="lede" style="margin-top:14px">Libraries ship security updates. Compilers move on. Starting at delivery, one flat monthly
-          fee keeps an expert on your side, and you can cancel any time.</p>
+        <h2 style="margin-top:14px">Support after delivery.</h2>
+        <p class="lede" style="margin-top:14px">Libraries get security updates, compilers move on. For a flat monthly fee from delivery on,
+          I stay on your side. Cancel any time.</p>
       </div>
       <div>
         <ul>
-          <li>Monthly call with the engineer who audited your binding</li>
+          <li>A monthly call with me, the one who audited your binding</li>
           <li>Answers within two working days</li>
           <li>Review of every yellow change</li>
           <li>Alerts on compiler bugs and Rust advisories that affect you</li>
@@ -191,14 +191,14 @@
     <div class="head">
       <div class="eyebrow">Example · fictional</div>
       <h2>A year with an Mbed TLS binding.</h2>
-      <p class="lede">An automotive supplier builds a Rust gateway on Mbed TLS. The binding works in the lab, but nobody can prove it.
+      <p class="lede">An automotive supplier builds a Rust gateway on Mbed TLS. The binding works in the lab. The safety assessor wants proof.
         140 surface points, size M.</p>
     </div>
     <div class="story">
       <div><span class="when">Weeks 1–5</span><b>Assess, audit, fix</b><p>11 findings, 3 critical. Fixed with the fix-everything package.</p></div>
       <div><span class="when">Months 2–3</span><b>Qualified on target</b><p>Board arrived three weeks late. The fixed price didn't move. The assessor accepted the report.</p></div>
       <div class="y"><span class="when">Month 4</span><b>Library update</b><p>Gate turned yellow on one struct. Two hours of review, fixed by their own team.</p></div>
-      <div class="r"><span class="when">Month 7</span><b>New compiler</b><p>Gate turned red. Requalified at a fixed price. Still proven a year later.</p></div>
+      <div class="r"><span class="when">Month 7</span><b>New compiler</b><p>Gate turned red. Requalified at a fixed price. One year in, the binding is still qualified.</p></div>
     </div>
   </div>
 </section>
@@ -209,9 +209,8 @@
     <div class="copy">
       <div class="eyebrow">Who you work with</div>
       <h2>Arnaud Riess</h2>
-      <p>Independent consultant for safety-critical Rust. I help teams bring Rust into
-        functional-safety projects: embedded Rust, Rust and C interop, toolchains and formal verification. Seamproof is that
-        experience packaged as a fixed outcome. More about me on the <a href="{{ get_url(path="/") }}">home page</a>.</p>
+      <p>I'm an independent safety-critical Rust consultant, with 15+ years of automotive C and C++ before that.
+        This offer is what I learned at the Rust and C boundary, with fixed prices. More about me on the <a href="{{ get_url(path="/") }}">home page</a>.</p>
       <div class="tags"><span>Embedded Rust</span><span>ISO 26262</span><span>IEC 61508</span><span>Rust ↔ C interop</span><span>bindgen / cbindgen</span><span>Formal verification</span></div>
     </div>
   </div>

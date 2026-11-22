@@ -59,57 +59,53 @@
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">How it works</div>
-      <h2>A fixed price at every step.</h2>
-      <p class="lede">Each step ends with the price of the next one, so you know the number before you say yes.</p>
+      <h2>Two steps. You know the price first.</h2>
+      <p class="lede">You start small. After the assessment you know the fixed price of everything that follows.</p>
     </div>
     <ol class="flow">
       <li class="node door">
-        <div class="node-id"><span class="num">01</span><h3>Binding Assessment</h3></div>
-        <p>Send me the crate or the headers. Within two working days you get the size class, the first risks and a fixed price.</p>
-        <div class="price">€{{ config.extra.prices.assessment | num_format }} · deducted later</div>
-      </li>
-
-      <li class="node big">
-        <div class="big-top">
-          <div class="big-main">
-            <div class="node-id"><span class="num">02</span><h3>Audit or Build</h3></div>
-            <p>I audit your existing binding, or build a new one. The audit report is included either way.</p>
-            <div class="svc">
-              <div><b>Audit</b><span>You have a binding. You get a report with every finding, its severity and a fixed fix price.</span></div>
-              <div><b>Build</b><span>You have headers or a crate. You get the binding, checked against the same list, report included.</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="fan">
-          <div class="price">fixed by size</div>
-          <div class="sizes">
-            <div class="size"><i class="in"></i><b>S</b><span>≤ 60 pts</span><dl class="tag"><div><dt>audit</dt><dd>€{{ config.extra.prices.audit.s | num_format }}</dd></div><div><dt>build</dt><dd>€{{ config.extra.prices.build.s | num_format }}</dd></div></dl><i class="out"></i></div>
-            <div class="size hl"><i class="in"></i><b>M</b><span>≤ 150 pts</span><dl class="tag"><div><dt>audit</dt><dd>€{{ config.extra.prices.audit.m | num_format }}</dd></div><div><dt>build</dt><dd>€{{ config.extra.prices.build.m | num_format }}</dd></div></dl><i class="out"></i></div>
-            <div class="size"><i class="in"></i><b>L</b><span>≤ 300 pts</span><dl class="tag"><div><dt>audit</dt><dd>€{{ config.extra.prices.audit.l | num_format }}</dd></div><div><dt>build</dt><dd>€{{ config.extra.prices.build.l | num_format }}</dd></div></dl><i class="out"></i></div>
-            <div class="size"><i class="in"></i><b>XL</b><span>C++, several libs</span><dl class="tag quote"><div><dt>audit · build</dt><dd>on quote</dd></div></dl><i class="out"></i></div>
-          </div>
-        </div>
-      </li>
-
-      <li class="node">
-        <div class="node-id"><span class="num">03</span><h3>Fix</h3></div>
+        <div class="node-id"><span class="num">01 · Start here</span><h3>Binding Assessment</h3></div>
         <div class="node-text">
-          <p>Every finding in the report comes with a fixed price. Pick some, or fix everything.</p>
-          <p class="more">I fix and re-check them. Choose single findings or the fix-everything package.</p>
+          <p>Send me the crate or the headers. Within two working days you know the first risks and the fixed price for step 2.</p>
+          <p class="more">The €{{ config.extra.prices.assessment | num_format }} comes off that price.</p>
         </div>
-        <div class="price">fixed per finding</div>
+        <div class="price">€{{ config.extra.prices.assessment | num_format }}</div>
       </li>
 
       <li class="node">
-        <div class="node-id"><span class="num">04</span><h3>Target Qualification</h3></div>
-        <p>I prove the binding on your compiler, version, flags and hardware.</p>
-        <div class="price">per configuration</div>
+        <div class="node-id"><span class="num">02</span><h3>Audit or Build</h3></div>
+        <div class="node-text">
+          <div class="svc">
+            <div><b>Audit</b><span>You already have a binding. You get a report with every finding and a fixed price to fix each one.</span></div>
+            <div><b>Build</b><span>You need a binding. I write it and check it against the same list. Report included.</span></div>
+          </div>
+          <details class="prices">
+            <summary>See all prices</summary>
+            <table>
+              <thead><tr><th>Size</th><th>Surface points</th><th class="n">Audit</th><th class="n">Build</th></tr></thead>
+              <tbody>
+                <tr><td><b>S</b></td><td>≤ 60</td><td class="n">€{{ config.extra.prices.audit.s | num_format }}</td><td class="n">€{{ config.extra.prices.build.s | num_format }}</td></tr>
+                <tr><td><b>M</b></td><td>≤ 150</td><td class="n">€{{ config.extra.prices.audit.m | num_format }}</td><td class="n">€{{ config.extra.prices.build.m | num_format }}</td></tr>
+                <tr><td><b>L</b></td><td>≤ 300</td><td class="n">€{{ config.extra.prices.audit.l | num_format }}</td><td class="n">€{{ config.extra.prices.build.l | num_format }}</td></tr>
+                <tr><td><b>XL</b></td><td>more, C++, several libraries</td><td class="n" colspan="2">on quote</td></tr>
+              </tbody>
+            </table>
+            <p class="note">Every function, type, callback and shared object counts. The assessment tells you your size. <a href="#surface-points">What is a surface point? ⟶</a></p>
+          </details>
+        </div>
+        <div class="price">from €{{ config.extra.prices.audit.s | num_format }}</div>
       </li>
 
-      <li class="node">
-        <div class="node-id"><span class="num">05</span><h3>Subscription</h3></div>
-        <p>Libraries and toolchains change. This keeps the proof valid.</p>
-        <div class="price">monthly · cancel any time</div>
+      <li class="node next">
+        <div class="node-id"><span class="num">03 · Optional</span><h3>Continue with me</h3></div>
+        <div class="node-text">
+          <p>After step 2 you can stop. Or we keep working together.</p>
+          <div class="opts">
+            <div><b>Fix</b><p>I fix the findings you pick and check them again.</p><span class="price">fixed per finding</span></div>
+            <a href="#qualification"><b>Qualify on your target</b><p>I prove the binding on your compiler, flags and hardware.</p><span class="price">per target</span></a>
+            <a class="hl" href="#subscription"><b>Subscription</b><p>Your team fixes, I re-check. Then I keep the proof valid when libraries and compilers change.</p><span class="price">€{{ config.extra.prices.subscription | num_format }} / month · cancel any time</span></a>
+          </div>
+        </div>
       </li>
     </ol>
   </div>
@@ -137,10 +133,10 @@
   </div>
 </section>
 
-<section>
+<section id="qualification">
   <div class="wrap two">
     <div>
-      <div class="eyebrow">Target Qualification</div>
+      <div class="eyebrow">Qualify on your target</div>
       <h2 style="margin-top:14px">A proof is valid for one compiler.</h2>
       <p class="lede" style="margin-top:14px">Each proof holds for one compiler. So every report ends
         with a scope statement, and each target configuration is qualified on its own.</p>
@@ -163,17 +159,18 @@
   </div>
 </section>
 
-<section class="band">
+<section class="band" id="subscription">
   <div class="wrap">
     <div class="sub">
       <div>
         <div class="eyebrow">Subscription</div>
-        <h2 style="margin-top:14px">Support after delivery.</h2>
-        <p class="lede" style="margin-top:14px">Libraries get security updates, compilers move on. For a flat monthly fee from delivery on,
-          I stay on your side. Cancel any time.</p>
+        <h2 style="margin-top:14px">I stay on your side.</h2>
+        <p class="lede" style="margin-top:14px">Your team fixes the findings, I check the fixes. Later, libraries get security updates and compilers move on.
+          €{{ config.extra.prices.subscription | num_format }} a month from the audit report on. Cancel any time.</p>
       </div>
       <div>
         <ul>
+          <li>Re-check of your team's fixes, up to two rounds</li>
           <li>A monthly call with me, the one who audited your binding</li>
           <li>Answers within two working days</li>
           <li>Review of every yellow change</li>
@@ -216,6 +213,38 @@
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions.</h2>
+    </div>
+    <div class="faq">
+      <details id="surface-points">
+        <summary>What is a surface point?</summary>
+        <p>Everything that crosses the boundary between Rust and C: functions, structs, enums, unions, callbacks, global state.
+          Things where Rust and C can disagree count more: callbacks, ownership that moves across, threads.</p>
+      </details>
+      <details>
+        <summary>How do I know my size before I pay?</summary>
+        <p>You don't need to. The assessment counts the points and gives you the size and the fixed price.</p>
+      </details>
+      <details>
+        <summary>What if my binding grows during the audit?</summary>
+        <p>The price is fixed for the scope counted in the assessment. If new code comes in, you get a fixed price for the addition first.</p>
+      </details>
+      <details>
+        <summary>Do you need our whole source code?</summary>
+        <p>No. For the assessment, the headers or the crate are enough.</p>
+      </details>
+      <details>
+        <summary>What if my team fixes the findings?</summary>
+        <p>The report is yours, and your team can fix the findings itself. With the subscription, I re-check the fixes, up to two rounds included.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="final" id="start">
   <div class="wrap split">
     <div>
@@ -231,4 +260,9 @@
   </div>
 </section>
 </div>
+<script>
+  // Open the FAQ entry a link points to, e.g. "What is a surface point?"
+  function openFromHash(){ const d = document.getElementById(location.hash.slice(1)); if (d && d.tagName === 'DETAILS') d.open = true; }
+  window.addEventListener('hashchange', openFromHash); openFromHash();
+</script>
 {% endblock main %}

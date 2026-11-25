@@ -12,10 +12,19 @@
     <div class="wrap"><div class="prose">
       {{ page.content | safe }}
     </div>
-    <div class="post-cta">
-      <p>Working on safety-critical or embedded Rust? Let's talk.</p>
-      <a class="btn" href="https://cal.com/{{ config.extra.cal_com_username }}">Book a free call</a>
-    </div></div>
+    <aside class="post-offer" aria-label="Binding Assessment offer">
+      <div class="eyebrow">Binding Assessment · Rust ↔ C interop</div>
+      <h3>Rust next to C? <em>Check the boundary.</em></h3>
+      <p>Generated bindings compile and can still be wrong: layouts that differ, panics that unwind into C, memory freed on one side and used on the other.
+        Send me your crate or your headers. Within two working days you know the first risks, your size class and the fixed price for the audit.</p>
+      <div class="post-offer-foot">
+        <span class="offer-price">€{{ config.extra.prices.assessment | num_format }} fixed · then you decide</span>
+        <div class="post-offer-cta">
+          <a class="btn light" href="{{ get_url(path='@/rust-c-interop.md') }}#start">Start the assessment</a>
+          <a class="arrow" href="https://cal.com/{{ config.extra.cal_com_username }}">or book a free call ⟶</a>
+        </div>
+      </div>
+    </aside></div>
   </section>
 </article>
 {% endblock main %}

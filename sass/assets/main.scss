@@ -288,7 +288,15 @@ section.band { background: var(--band); }
 .post-list h2 a { text-decoration: none; }
 .post-list h2 a:hover { color: var(--accent); }
 .post-list p { color: var(--muted); margin-top: 8px; }
-.post-cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 72ch; display: flex; gap: 20px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.post-offer { margin-top: 56px; max-width: 72ch; background: var(--ink); color: var(--bg); border-radius: 12px; padding: 28px 32px; border-left: 6px solid var(--accent); }
+.post-offer .eyebrow { color: #E39A78; }
+.post-offer h3 { margin-top: 10px; font-size: clamp(26px, 3.2vw, 34px); font-stretch: var(--condensed); font-weight: 700; text-transform: uppercase; line-height: 1.05; }
+.post-offer h3 em { font-style: normal; color: #E8865A; }
+.post-offer p { margin-top: 12px; color: #D6CFC8; font-size: 16px; }
+.post-offer-foot { margin-top: 20px; padding-top: 18px; border-top: 1px solid #3A3633; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.post-offer-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.post-offer .arrow { color: var(--bg); font-size: 15px; }
+.post-offer .arrow:hover { border-color: var(--bg); }
 
 // 404
 .notfound { padding-block: 120px; }

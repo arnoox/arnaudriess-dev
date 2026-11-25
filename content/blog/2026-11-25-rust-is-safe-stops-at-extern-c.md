@@ -2,7 +2,6 @@
 title = "\"Rust is safe\" stops at extern \"C\""
 date = 2026-11-25
 description = "Rust's guarantees rest on the declarations at the C boundary, and the compiler cannot check them. Two small bugs show what that means in practice."
-draft = true   # remove this line to publish
 +++
 
 When a team brings Rust into an existing C code base, someone usually says: "And now it's memory safe." For the new Rust code, mostly yes. At the line where Rust calls C, no. In a mixed code base that line carries most of the risk, and the compiler can't see across it.

@@ -1,5 +1,5 @@
 +++
-description = "Fixed-price audit, build and target qualification of Rust and C bindings for ISO 26262 and IEC 61508 projects."
+description = "Fixed-price audit and build of Rust and C bindings, checked on your target. Evidence for your ISO 26262 or IEC 61508 safety case."
 template = "ffi.html"
 path = "rust-c-interop"
 aliases = ["ffi"]

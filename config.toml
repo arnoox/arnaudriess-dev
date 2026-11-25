@@ -26,7 +26,7 @@ umami_website_id = "18d7ff10-f9cc-4511-9fd0-52bc970e3955"
 
 # Single source of truth for every price shown on the site (EUR, plain numbers).
 # Templates format them, e.g. €{{ config.extra.prices.assessment | num_format }} → €2,400.
-# Business source: Products/FFI-Guard-Kit/FFI-Boundary-Assurance-Offer.md in the vault.
+# Business source: Products/Binding-Audit/FFI-Boundary-Assurance-Offer.md (§2.6) in the vault.
 [extra.prices]
 assessment = 2400
 audit = { s = 5500, m = 12500, l = 27000 }

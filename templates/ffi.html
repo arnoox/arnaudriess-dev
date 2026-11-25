@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{#- Draft: noindex, not in the sitemap, not linked from the header or footer. -#}
+{#- Draft: noindex and not in the sitemap until go-live. Linked from the header menu and the home page offer box. -#}
 {% block styles %}
     <link rel="stylesheet" href="{{ get_url(path='assets/ffi.css') }}">
 {% endblock styles %}
@@ -10,8 +10,8 @@
     <div>
       <div class="eyebrow">Rust ↔ C interop · ISO 26262 · IEC 61508</div>
       <h1>Your Rust and C boundary, <em>proven.</em></h1>
-      <p class="lede">At the end you have evidence your safety assessor accepts. You know the price before you commit,
-        and checks in your own CI tell you when the evidence is still valid.</p>
+      <p class="lede">At the end you have evidence for your ISO 26262 or IEC 61508 safety case: what was checked, on which compiler,
+        and what stays with you. You know the price before you commit, and checks in your own CI tell you when the evidence is still valid.</p>
       <div class="cta">
         <a class="btn" href="#start">Send me your binding</a>
         <a class="btn ghost" href="#how">See how it works</a>
@@ -66,7 +66,7 @@
       <li class="node door">
         <div class="node-id"><span class="num">01 · Start here</span><h3>Binding Assessment</h3></div>
         <div class="node-text">
-          <p>Send me the crate or the headers. Within two working days you know the first risks and the fixed price for step 2.</p>
+          <p>Send me the crate, or the headers and the list of functions you use. Within two working days you know the first risks and the fixed price for step 2.</p>
           <p class="more">The €{{ config.extra.prices.assessment | num_format }} comes off that price.</p>
         </div>
         <div class="price">€{{ config.extra.prices.assessment | num_format }}</div>
@@ -77,7 +77,7 @@
         <div class="node-text">
           <div class="svc">
             <div><b>Audit</b><span>You already have a binding. You get a report with every finding and a fixed price to fix each one.</span></div>
-            <div><b>Build</b><span>You need a binding. I write it and check it against the same list. Report included.</span></div>
+            <div><b>Build</b><span>You need a binding. I write it, and it passes the same checks as an audit. Report included.</span></div>
           </div>
           <details class="prices">
             <summary>See all prices</summary>
@@ -90,7 +90,7 @@
                 <tr><td><b>XL</b></td><td>more, C++, several libraries</td><td class="n" colspan="2">on quote</td></tr>
               </tbody>
             </table>
-            <p class="note">Every function, type, callback and shared object counts. The assessment tells you your size. <a href="#surface-points">What is a surface point? ⟶</a></p>
+            <p class="note">Every function that crosses the boundary counts. Callbacks, ownership and threads count more. The assessment tells you your size. <a href="#surface-points">What is a surface point? ⟶</a></p>
           </details>
         </div>
         <div class="price">from €{{ config.extra.prices.audit.s | num_format }}</div>
@@ -101,8 +101,8 @@
         <div class="node-text">
           <p>After step 2 you can stop. Or we keep working together.</p>
           <div class="opts">
-            <div><b>Fix</b><p>I fix the findings you pick and check them again.</p><span class="price">fixed per finding</span></div>
-            <a href="#qualification"><b>Qualify on your target</b><p>I prove the binding on your compiler, flags and hardware.</p><span class="price">per target</span></a>
+            <div><b>Fix</b><p>I fix the findings you pick and check them again.</p><span class="price">fixed per finding, or all as one package</span></div>
+            <a href="#qualification"><b>Qualify on your target</b><p>I check layout and ABI on your compiler, flags and hardware, and run the tests there.</p><span class="price">per target</span></a>
             <a class="hl" href="#subscription"><b>Subscription</b><p>Your team fixes, I re-check. Then I keep the proof valid when libraries and compilers change.</p><span class="price">€{{ config.extra.prices.subscription | num_format }} / month · cancel any time</span></a>
           </div>
         </div>
@@ -154,7 +154,10 @@
   cc:        arm-none-eabi-gcc 13.2, -Os
   config:    mbedtls_config_gw.h
   target:    Cortex-M7 board, rev C
-  <span class="k">result:</span>    <span class="ok">47/47 obligations discharged</span>
+  catalogue: hazard catalogue v1.0
+  <span class="k">result:</span>    <span class="ok">312/312 obligations discharged</span>
+  <span class="k">residual:</span>  2 manual findings, accepted by customer
+  <span class="k">assumes:</span>   4 assumptions of use, see report
   <span class="k">valid for:</span> this configuration only</pre>
   </div>
 </section>
@@ -193,14 +196,46 @@
     </div>
     <div class="story">
       <div><span class="when">Weeks 1–5</span><b>Assess, audit, fix</b><p>11 findings, 3 critical. Fixed with the fix-everything package.</p></div>
-      <div><span class="when">Months 2–3</span><b>Qualified on target</b><p>Board arrived three weeks late. The fixed price didn't move. The assessor accepted the report.</p></div>
+      <div><span class="when">Months 2–3</span><b>Qualified on target</b><p>Board arrived three weeks late. The fixed price didn't move. The report went into their safety case.</p></div>
       <div class="y"><span class="when">Month 4</span><b>Library update</b><p>Gate turned yellow on one struct. Two hours of review, fixed by their own team.</p></div>
-      <div class="r"><span class="when">Month 7</span><b>New compiler</b><p>Gate turned red. Requalified at a fixed price. One year in, the binding is still qualified.</p></div>
+      <div class="r"><span class="when">Month 7</span><b>New compiler</b><p>Gate turned red. Requalified at a fixed price. One year in, the evidence still matches the shipped binding.</p></div>
     </div>
   </div>
 </section>
 
-<section class="band" id="about">
+<section id="scope" class="band">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">What the proof covers</div>
+      <h2>The claim ends where <code>unsafe</code> ends.</h2>
+      <p class="lede">I show that no safe Rust caller can cause undefined behavior through the binding, and that no C contract
+        is silently broken. What the library does is not part of the claim.</p>
+    </div>
+    <div class="two">
+      <div>
+        <h3>In scope</h3>
+        <ul class="checks">
+          <li>The generated layer: pinned generator, configuration, layout and ABI</li>
+          <li>The <code>unsafe</code> wrapper: null, lifetimes, ownership, callbacks, panics, threads, error codes</li>
+          <li>The safe signatures that expose it</li>
+          <li>Both directions: bindgen (Rust calls C) and cbindgen (C calls Rust)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Out of scope</h3>
+        <ul class="checks out">
+          <li>Internals and functional correctness of the C library</li>
+          <li>The meaning of values, such as units and ranges, unless a wrong value causes undefined behavior</li>
+          <li>Your idiomatic Rust API on top, as long as it has no <code>unsafe</code></li>
+          <li>Toolchain qualification, beyond the ABI checks on your target</li>
+          <li>Your safety argument. The report is an input to it.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
   <div class="wrap about">
     <img class="photo" src="{{ get_url(path='assets/arnaud.jpg') }}" width="160" height="160" alt="Portrait of Arnaud Riess">
     <div class="copy">
@@ -213,7 +248,7 @@
   </div>
 </section>
 
-<section id="faq">
+<section class="band" id="faq">
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">FAQ</div>
@@ -222,8 +257,9 @@
     <div class="faq">
       <details id="surface-points">
         <summary>What is a surface point?</summary>
-        <p>Everything that crosses the boundary between Rust and C: functions, structs, enums, unions, callbacks, global state.
-          Things where Rust and C can disagree count more: callbacks, ownership that moves across, threads.</p>
+        <p>Every function that crosses the boundary between Rust and C counts one point.
+          Things where Rust and C can disagree count more: callbacks, ownership that moves across, threads, unions,
+          and functions whose contract is unclear.</p>
       </details>
       <details>
         <summary>How do I know my size before I pay?</summary>
@@ -235,7 +271,22 @@
       </details>
       <details>
         <summary>Do you need our whole source code?</summary>
-        <p>No. For the assessment, the headers or the crate are enough.</p>
+        <p>No. For the assessment, the crate is enough, or the headers plus the list of functions you use.</p>
+      </details>
+      <details>
+        <summary>Does this work when C calls Rust?</summary>
+        <p>Yes. For cbindgen the risk sits in the export shims: panics, null pointers, who frees what, which thread calls.
+          C callers get the contract written into the header.</p>
+      </details>
+      <details>
+        <summary>Our C headers are poorly documented. Is that a problem?</summary>
+        <p>No. You get one list of questions with a deadline. Where there is no answer, I assume the safe case and
+          write it into the report. A missing contract is a finding.</p>
+      </details>
+      <details>
+        <summary>Can you audit a binding you built yourself?</summary>
+        <p>Build and audit are separate work packages, and my own code passes the same checks.
+          If your integrity level needs an independent review, we agree on a second reviewer before the work starts.</p>
       </details>
       <details>
         <summary>What if my team fixes the findings?</summary>

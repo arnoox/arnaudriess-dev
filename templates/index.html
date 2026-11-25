@@ -6,7 +6,7 @@
       <div class="eyebrow">Rust ↔ C interop · ISO 26262 · IEC 61508</div>
       <h1>Every call from Rust into C is unchecked. <em>I check it.</em></h1>
       <p class="lede"><strong>More and more safety projects put Rust next to existing C, and neither compiler sees the other side.</strong>
-        I audit, build and qualify these bindings for ISO 26262 and IEC 61508, at a fixed price.</p>
+        I audit and build these bindings, and check them on your target. You get evidence for your ISO 26262 or IEC 61508 safety case, at a fixed price.</p>
       <div class="cta">
         <a class="btn" href="{{ get_url(path='@/rust-c-interop.md') }}">See the fixed-price offer</a>
         <a class="btn ghost" href="#book-a-free-call">Book a free call</a>
@@ -40,7 +40,7 @@ extern "C" {
       <div class="offer-copy">
         <div class="eyebrow">Fixed-price offer · Rust ↔ C interop</div>
         <h3>Your Rust and C boundary, <em>proven</em>.</h3>
-        <p>I audit your binding or build a new one, then prove it on your target. You know the price before every step.</p>
+        <p>I audit your binding or build a new one, then check it on your target. You know the price before every step.</p>
       </div>
       <ol class="offer-steps" aria-label="Process">
         <li><span>01</span>Binding Assessment</li>
@@ -66,7 +66,7 @@ extern "C" {
     </div>
     <div class="grid4 ruled">
       <div><b>Early error detection</b><p>Memory and concurrency bugs show up at build time, long before integration testing.</p></div>
-      <div><b>Deterministic, safe code</b><p>No hidden runtime. Safe Rust has no undefined behavior.</p></div>
+      <div><b>Deterministic, safe code</b><p>No hidden runtime. Safe Rust cannot cause undefined behavior, as long as the <code>unsafe</code> code below it is sound.</p></div>
       <div><b>Less testing overhead</b><p>The compiler rules out whole classes of bugs, so your tests can focus on behavior.</p></div>
       <div><b>Faster integration cycles</b><p>Fewer surprises when the parts come together on the target.</p></div>
     </div>

@@ -11,7 +11,7 @@ site is still Jekyll.
 
 - [ ] **Rust ↔ C page is hidden from Google.** `content/rust-c-interop.md` has
       `noindex = true` and `sitemap = false`. Remove both on go-live day.
-- [ ] **Example post is published.** `content/blog/2026-11-20-hello-blog.md` is
+- [x] **Example post is published.** Done: renamed to `2026-11-20-hello-blog-draft.md`, `draft = true`. `content/blog/2026-11-20-hello-blog.md` is
       not a draft and appears in `sitemap.xml` with placeholder text. Delete it
       or set `draft = true`.
 - [ ] **Blog index copies the home page's SEO.** `templates/base.html` only checks

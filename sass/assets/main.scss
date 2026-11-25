@@ -214,6 +214,19 @@ section.band { background: var(--band); }
 .ruled b { font-size: 18px; font-weight: 600; }
 .ruled p { color: var(--muted); font-size: 15.5px; }
 
+// Icons (sprite in templates/partials/icons.html)
+.ico { display: inline-block; width: 1.15em; height: 1.15em; flex: none; vertical-align: -0.2em;
+  fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.ico-tile { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-deep); flex: none; }
+.ico-tile .ico { width: 22px; height: 22px; }
+.with-ico { display: inline-flex; align-items: center; gap: 8px; }
+.with-ico .ico { color: var(--accent); }
+.ruled .ico-tile { margin-bottom: 8px; }
+.card-top { display: flex; justify-content: space-between; align-items: center; }
+.bug .ico-tile { background: var(--stop-soft); color: var(--stop); }
+.tags.strong span { display: inline-flex; align-items: center; gap: 6px; }
+.tags.strong .ico { color: var(--accent); }
+
 // Tags
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tags span { font-family: var(--mono); font-size: 12.5px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; color: var(--muted); background: var(--bg); }

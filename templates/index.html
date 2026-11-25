@@ -62,13 +62,13 @@ extern "C" {
       <h2>Correctness at compile time.</h2>
       <p class="lede">Rust pushes correctness to compile time: strong typing, memory and thread safety, no garbage collector.
         That fits standards like ISO 26262 and IEC 61508 very well. You catch errors earlier in the V-model, and verification gets cheaper.</p>
-      <div class="tags strong"><span>IEC 61508</span><span>ISO 26262</span><span>IEC 62304</span></div>
+      <div class="tags strong"><span><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg>IEC 61508</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg>ISO 26262</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg>IEC 62304</span></div>
     </div>
     <div class="grid4 ruled">
-      <div><b>Early error detection</b><p>Memory and concurrency bugs show up at build time, long before integration testing.</p></div>
-      <div><b>Deterministic, safe code</b><p>No hidden runtime. Safe Rust cannot cause undefined behavior, as long as the <code>unsafe</code> code below it is sound.</p></div>
-      <div><b>Less testing overhead</b><p>The compiler rules out whole classes of bugs, so your tests can focus on behavior.</p></div>
-      <div><b>Faster integration cycles</b><p>Fewer surprises when the parts come together on the target.</p></div>
+      <div><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-bug"/></svg></span><b>Early error detection</b><p>Memory and concurrency bugs show up at build time, long before integration testing.</p></div>
+      <div><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg></span><b>Deterministic, safe code</b><p>No hidden runtime. Safe Rust cannot cause undefined behavior, as long as the <code>unsafe</code> code below it is sound.</p></div>
+      <div><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-flask"/></svg></span><b>Less testing overhead</b><p>The compiler rules out whole classes of bugs, so your tests can focus on behavior.</p></div>
+      <div><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-merge"/></svg></span><b>Faster integration cycles</b><p>Fewer surprises when the parts come together on the target.</p></div>
     </div>
   </div>
 </section>
@@ -82,20 +82,20 @@ extern "C" {
     </div>
     <div class="grid3">
       <div class="card">
-        <span class="num">01</span>
+        <div class="card-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-message"/></svg></span><span class="num">01</span></div>
         <h3>Consulting</h3>
         <p>Rust adoption, architecture and certification workflows for functional safety. And for managers: does Rust pay
           off in your project, and when?</p>
         <a class="arrow" href="#book-a-free-call">Book a free call ⟶</a>
       </div>
       <div class="card">
-        <span class="num">02</span>
+        <div class="card-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg></span><span class="num">02</span></div>
         <h3>Training</h3>
         <p>Hands-on Rust workshops for embedded and safety engineers, plus onboarding support for your team.</p>
         <a class="arrow" href="#book-a-free-call">Plan a workshop ⟶</a>
       </div>
       <div class="card">
-        <span class="num">03</span>
+        <div class="card-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg></span><span class="num">03</span></div>
         <h3>Development</h3>
         <p>Production-ready Rust, porting legacy C and C++, and bringing Rust into your existing toolchain.</p>
         <a class="arrow" href="#book-a-free-call">Discuss a project ⟶</a>
@@ -116,8 +116,18 @@ extern "C" {
       <p>Today I help teams bring Rust into their safety-critical software and toolchains.
         <strong>Industries:</strong> Automotive, MedTech, Aerospace, and beyond. Available for projects and workshops in
         Stuttgart, Germany, and worldwide.</p>
-      <div class="tags"><span>Rust ↔ C interop</span><span>Embedded Rust</span><span>AUTOSAR Classic / Adaptive</span><span>ADAS</span><span>RTOS</span><span>C / C++</span><span>Functional safety</span></div>
-      <p class="muted">Fluent: 🇬🇧 English, 🇩🇪 German and 🇫🇷 French.</p>
+      <div class="tags">
+        <span>Rust ↔ C interop</span>
+        <span>Embedded Rust</span>
+        <span>AUTOSAR Classic / Adaptive</span>
+        <span>ADAS</span>
+        <span>RTOS</span>
+        <span>C / C++</span>
+        <span>Functional safety</span>
+        <span>🇬🇧 English</span>
+        <span>🇩🇪 Deutsch</span>
+        <span>🇫🇷 Français</span>
+      </div>
     </div>
   </div>
 </section>

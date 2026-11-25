@@ -118,3 +118,19 @@
 .ffi .faq summary:hover{color:var(--accent);}
 .ffi .faq details p{margin-top:10px; color:var(--text); font-size:16px; max-width:70ch;}
 .ffi .faq details:target, .ffi .faq details[open] summary{color:var(--accent-deep);}
+
+/* Icons (sprite in templates/partials/icons.html) */
+.ffi .node-id .ico{width:26px; height:26px; color:var(--bg); opacity:.9; margin-bottom:2px;}
+.ffi .card.bug .card-top code{align-self:center;}
+.ffi .svc div{grid-template-columns:110px 1fr;}
+.ffi .facts div{grid-template-columns:170px 1fr;}
+.ffi .facts .ico, .ffi .story .ico{color:var(--muted);}
+.ffi .story .y .ico{color:var(--warn);}
+.ffi .story .r .ico{color:var(--stop);}
+.ffi .opts .hl .ico{color:var(--accent);}
+.ffi #scope h3.in .ico{color:var(--go);}
+.ffi #scope h3.out .ico{color:var(--muted);}
+.ffi #scope h3 .ico{width:26px; height:26px;}
+.ffi .eyebrow.with-ico .ico{width:16px; height:16px;}
+.ffi .opts b.with-ico{align-items:flex-start;}
+.ffi .opts b.with-ico .ico{margin-top:.2em;}

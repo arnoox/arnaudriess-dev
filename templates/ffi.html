@@ -48,9 +48,9 @@
         different promises, and no compiler checks that.</p>
     </div>
     <div class="grid3">
-      <div class="card bug"><code>use after free</code><h3>Ownership across the line</h3><p>Rust drops an object while the C side still holds a pointer to it.</p></div>
-      <div class="card bug"><code>undefined behavior</code><h3>Panics into C</h3><p>A Rust callback panics and unwinds into C code that was never built for it.</p></div>
-      <div class="card bug"><code>size mismatch</code><h3>Two views of one struct</h3><p>Different flags or config headers give each side its own idea of the layout.</p></div>
+      <div class="card bug"><div class="card-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-unlink"/></svg></span><code>use after free</code></div><h3>Ownership across the line</h3><p>Rust drops an object while the C side still holds a pointer to it.</p></div>
+      <div class="card bug"><div class="card-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg></span><code>undefined behavior</code></div><h3>Panics into C</h3><p>A Rust callback panics and unwinds into C code that was never built for it.</p></div>
+      <div class="card bug"><div class="card-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-layout"/></svg></span><code>size mismatch</code></div><h3>Two views of one struct</h3><p>Different flags or config headers give each side its own idea of the layout.</p></div>
     </div>
   </div>
 </section>
@@ -64,7 +64,7 @@
     </div>
     <ol class="flow">
       <li class="node door">
-        <div class="node-id"><span class="num">01 · Start here</span><h3>Binding Assessment</h3></div>
+        <div class="node-id"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg><span class="num">01 · Start here</span><h3>Binding Assessment</h3></div>
         <div class="node-text">
           <p>Send me the crate, or the headers and the list of functions you use. Within two working days you know the first risks and the fixed price for step 2.</p>
           <p class="more">Then you decide. The assessment does not commit you to anything.</p>
@@ -73,11 +73,11 @@
       </li>
 
       <li class="node">
-        <div class="node-id"><span class="num">02</span><h3>Audit or Build</h3></div>
+        <div class="node-id"><svg class="ico" aria-hidden="true"><use href="#i-file-search"/></svg><span class="num">02</span><h3>Audit or Build</h3></div>
         <div class="node-text">
           <div class="svc">
-            <div><b>Audit</b><span>You already have a binding. You get a report with every finding and a fixed price to fix each one.</span></div>
-            <div><b>Build</b><span>You need a binding. I write it, and it passes the same checks as an audit. Report included.</span></div>
+            <div><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-file-search"/></svg>Audit</b><span>You already have a binding. You get a report with every finding and a fixed price to fix each one.</span></div>
+            <div><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg>Build</b><span>You need a binding. I write it, and it passes the same checks as an audit. Report included.</span></div>
           </div>
           <details class="prices">
             <summary>See all prices</summary>
@@ -98,13 +98,13 @@
       </li>
 
       <li class="node next">
-        <div class="node-id"><span class="num">03 · Optional</span><h3>Continue with me</h3></div>
+        <div class="node-id"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="num">03 · Optional</span><h3>Continue with me</h3></div>
         <div class="node-text">
           <p>After step 2 you can stop. Or we keep working together.</p>
           <div class="opts">
-            <div><b>Fix</b><p>I fix the findings you pick and check them again.</p><span class="price">fixed per finding, or all as one package</span></div>
-            <a href="#qualification"><b>Qualify on your target</b><p>I check layout and ABI on your compiler, flags and hardware, and run the tests there.</p><span class="price">per target</span></a>
-            <a class="hl" href="#subscription"><b>Subscription</b><p>Your team fixes, I re-check. Then I keep the proof valid when libraries and compilers change.</p><span class="price">€{{ config.extra.prices.subscription | num_format }} / month · cancel any time</span></a>
+            <div><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg>Fix</b><p>I fix the findings you pick and check them again.</p><span class="price">fixed per finding, or all as one package</span></div>
+            <a href="#qualification"><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-cpu"/></svg>Qualify on your target</b><p>I check layout and ABI on your compiler, flags and hardware, and run the tests there.</p><span class="price">per target</span></a>
+            <a class="hl" href="#subscription"><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-refresh"/></svg>Subscription</b><p>Your team fixes, I re-check. Then I keep the proof valid when libraries and compilers change.</p><span class="price">€{{ config.extra.prices.subscription | num_format }} / month · cancel any time</span></a>
           </div>
         </div>
       </li>
@@ -115,7 +115,7 @@
 <section class="band" id="gate">
   <div class="wrap two">
     <div>
-      <div class="eyebrow">Binding gate</div>
+      <div class="eyebrow with-ico"><svg class="ico" aria-hidden="true"><use href="#i-pipeline"/></svg>Binding gate</div>
       <h2 style="margin-top:14px">The checks run in your CI. You call me only when needed.</h2>
       <p class="lede" style="margin-top:14px">Every audit or build comes with a binding gate for your pipeline. Your team regenerates
         the binding, and the gate tells you if it is still fine.</p>
@@ -137,15 +137,15 @@
 <section id="qualification">
   <div class="wrap two">
     <div>
-      <div class="eyebrow">Qualify on your target</div>
+      <div class="eyebrow with-ico"><svg class="ico" aria-hidden="true"><use href="#i-cpu"/></svg>Qualify on your target</div>
       <h2 style="margin-top:14px">A proof is valid for one compiler.</h2>
       <p class="lede" style="margin-top:14px">Each proof holds for one compiler. So every report ends
         with a scope statement, and each target configuration is qualified on its own.</p>
       <div class="facts">
-        <div><b>Configuration</b><span>Compiler, version, flags and hardware</span></div>
-        <div><b>You provide</b><span>Licenses and board or remote access. The fixed price starts when everything is in place.</span></div>
-        <div><b>Setup</b><span>Hourly, capped at two days</span></div>
-        <div><b>No board yet</b><span>I qualify on a simulator and say so in the report</span></div>
+        <div><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg>Configuration</b><span>Compiler, version, flags and hardware</span></div>
+        <div><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-package"/></svg>You provide</b><span>Licenses and board or remote access. The fixed price starts when everything is in place.</span></div>
+        <div><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Setup</b><span>Hourly, capped at two days</span></div>
+        <div><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-monitor"/></svg>No board yet</b><span>I qualify on a simulator and say so in the report</span></div>
       </div>
     </div>
     <pre class="scope"><span class="k">scope_statement:</span>
@@ -167,7 +167,7 @@
   <div class="wrap">
     <div class="sub">
       <div>
-        <div class="eyebrow">Subscription</div>
+        <div class="eyebrow with-ico"><svg class="ico" aria-hidden="true"><use href="#i-refresh"/></svg>Subscription</div>
         <h2 style="margin-top:14px">I stay on your side.</h2>
         <p class="lede" style="margin-top:14px">Your team fixes the findings, I check the fixes. Later, libraries get security updates and compilers move on.
           €{{ config.extra.prices.subscription | num_format }} a month. Cancel any time.</p>
@@ -196,10 +196,10 @@
         140 surface points, size M.</p>
     </div>
     <div class="story">
-      <div><span class="when">Weeks 1–5</span><b>Assess, audit, fix</b><p>11 findings, 3 critical. Fixed with the fix-everything package.</p></div>
-      <div><span class="when">Months 2–3</span><b>Qualified on target</b><p>Board arrived three weeks late. The fixed price didn't move. The report went into their safety case.</p></div>
-      <div class="y"><span class="when">Month 4</span><b>Library update</b><p>Gate turned yellow on one struct. Two hours of review, fixed by their own team.</p></div>
-      <div class="r"><span class="when">Month 7</span><b>New compiler</b><p>Gate turned red. Requalified at a fixed price. One year in, the evidence still matches the shipped binding.</p></div>
+      <div><span class="when">Weeks 1–5</span><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg>Assess, audit, fix</b><p>11 findings, 3 critical. Fixed with the fix-everything package.</p></div>
+      <div><span class="when">Months 2–3</span><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-cpu"/></svg>Qualified on target</b><p>Board arrived three weeks late. The fixed price didn't move. The report went into their safety case.</p></div>
+      <div class="y"><span class="when">Month 4</span><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Library update</b><p>Gate turned yellow on one struct. Two hours of review, fixed by their own team.</p></div>
+      <div class="r"><span class="when">Month 7</span><b class="with-ico"><svg class="ico" aria-hidden="true"><use href="#i-refresh"/></svg>New compiler</b><p>Gate turned red. Requalified at a fixed price. One year in, the evidence still matches the shipped binding.</p></div>
     </div>
   </div>
 </section>
@@ -214,7 +214,7 @@
     </div>
     <div class="two">
       <div>
-        <h3>In scope</h3>
+        <h3 class="with-ico in"><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg>In scope</h3>
         <ul class="checks">
           <li>The generated layer: pinned generator, configuration, layout and ABI</li>
           <li>The <code>unsafe</code> wrapper: null, lifetimes, ownership, callbacks, panics, threads, error codes</li>
@@ -223,7 +223,7 @@
         </ul>
       </div>
       <div>
-        <h3>Out of scope</h3>
+        <h3 class="with-ico out"><svg class="ico" aria-hidden="true"><use href="#i-shield-x"/></svg>Out of scope</h3>
         <ul class="checks out">
           <li>Internals and functional correctness of the C or Rust library</li>
           <li>The meaning of values, such as units and ranges, unless a wrong value causes undefined behavior</li>
@@ -244,7 +244,7 @@
       <h2>Arnaud Riess</h2>
       <p>I'm an independent safety-critical Rust consultant, with 15+ years of automotive C and C++ before that.
         This offer is what I learned at the Rust and C boundary, with fixed prices. More about me on the <a href="{{ get_url(path="/") }}">home page</a>.</p>
-      <div class="tags"><span>Embedded Rust</span><span>ISO 26262</span><span>IEC 61508</span><span>Rust ↔ C interop</span><span>bindgen / cbindgen</span><span>Formal verification</span></div>
+      <div class="tags strong"><span>Embedded Rust</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg>ISO 26262</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg>IEC 61508</span><span>Rust ↔ C interop</span><span>bindgen / cbindgen</span><span>Formal verification</span></div>
     </div>
   </div>
 </section>

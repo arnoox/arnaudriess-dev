@@ -208,7 +208,7 @@
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">What the proof covers</div>
-      <h2>The claim ends where <code>unsafe</code> ends.</h2>
+      <h2>The claim ends where unsafe ends.</h2>
       <p class="lede">I show that no safe Rust caller can cause undefined behavior through the binding, and that no C contract
         is silently broken. What the library does is not part of the claim.</p>
     </div>
@@ -225,7 +225,7 @@
       <div>
         <h3>Out of scope</h3>
         <ul class="checks out">
-          <li>Internals and functional correctness of the C library</li>
+          <li>Internals and functional correctness of the C or Rust library</li>
           <li>The meaning of values, such as units and ranges, unless a wrong value causes undefined behavior</li>
           <li>Your idiomatic Rust API on top, as long as it has no <code>unsafe</code></li>
           <li>Toolchain qualification, beyond the ABI checks on your target</li>

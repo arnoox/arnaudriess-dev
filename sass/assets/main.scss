@@ -293,13 +293,7 @@ section.band { background: var(--band); }
 .post-list h2 a { text-decoration: none; }
 .post-list h2 a:hover { color: var(--accent); }
 .post-list p { color: var(--muted); margin-top: 8px; }
-.post-offer { margin-top: 56px; max-width: 72ch; padding: 28px 32px; border-left: 6px solid var(--accent); }
-.post-offer h3 { margin-top: 10px; font-size: clamp(26px, 3.2vw, 34px); line-height: 1.05; }
-.post-offer p { margin-top: 12px; }
-.post-offer .offer-foot { margin-top: 20px; }
-.post-offer-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.post-offer .arrow { color: var(--bg); font-size: 15px; }
-.post-offer .arrow:hover { border-color: var(--bg); }
+.post-cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 72ch; display: flex; gap: 20px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
 
 // 404
 .notfound { padding-block: 120px; }

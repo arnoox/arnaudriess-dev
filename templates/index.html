@@ -4,14 +4,15 @@
   <div class="wrap">
     <div>
       <div class="eyebrow">Rust ↔ C interop · ISO 26262 · IEC 61508</div>
-      <h1>Every call from Rust into C is unchecked. <em>I check it.</em></h1>
-      <p class="lede"><strong>More and more safety projects put Rust next to existing C, and neither compiler sees the other side.</strong>
-        I audit and build these bindings, and check them on your target. You get evidence for your ISO 26262 or IEC 61508 safety case, at a fixed price.</p>
+      <h1>I examine the boundary between your <em>Rust and C code.</em></h1>
+      <p class="lede"><strong>Many functional safety and mission critical related projects add Rust to existing C code.</strong>
+        The Rust compiler does not see the C side. The C compiler does not see the Rust side.
+        I audit and write these bindings and test them on target. You get evidence for an ISO 26262 or IEC 61508 safety case. The price is fixed before each step.</p>
       <div class="cta">
-        <a class="btn" href="{{ get_url(path='@/rust-c-interop.md') }}">See the fixed-price offer</a>
-        <a class="btn ghost" href="#book-a-free-call">Book a free call</a>
+        <a class="btn" href="{{ get_url(path='@/rust-c-interop.md') }}">Fixed-price offer</a>
+        <a class="btn ghost" href="#book-a-free-call">Book a free 30-minute call</a>
       </div>
-      <p class="also"><a href="#services">Also: safety-critical Rust consulting, training and development ⟶</a></p>
+      <p class="also"><a href="#services">Other work: Rust consulting, training, and development for safety projects ⟶</a></p>
       <p class="fine">Stuttgart, Germany, and worldwide · English, Deutsch, Français</p>
     </div>
 
@@ -29,7 +30,7 @@ extern "C" {
 <span class="dim">$ cargo build --target thumbv7em-none-eabihf</span>
 <span class="dim">    Finished release [optimized]</span></pre>
       </div>
-      <div class="verdict"><span>✗</span><span><b>Builds and links without a warning.</b> C expects a <code>uint16_t</code>, Rust passes a <code>usize</code>. Neither compiler looks at the other side.</span></div>
+      <div class="verdict"><span>✗</span><span><b>The build and the link give no warning.</b> C expects a <code>uint16_t</code>. Rust sends a <code>usize</code>. No compiler compares the two declarations.</span></div>
     </div>
   </div>
 </section>
@@ -39,16 +40,16 @@ extern "C" {
     <a class="offer" href="{{ get_url(path='@/rust-c-interop.md') }}">
       <div class="offer-copy">
         <div class="eyebrow">Fixed-price offer · Rust ↔ C interop</div>
-        <h3>Your Rust and C boundary, <em>proven</em>.</h3>
-        <p>I audit your binding or build a new one, then check it on your target. You know the price before every step.</p>
+        <h3>Fixed-price audit of <em>Rust and C bindings</em></h3>
+        <p>I audit an existing binding or write a new one. Then I test it on target. The price is fixed before each step.</p>
       </div>
       <ol class="offer-steps" aria-label="Process">
         <li><span>01</span>Binding Assessment</li>
         <li><span>02</span>Audit or Build</li>
-        <li><span>03</span>Continue with me: fix, qualify, subscription</li>
+        <li><span>03</span>Optional: fixes, target qualification, subscription</li>
       </ol>
       <div class="offer-foot">
-        <span class="offer-price">Start: Binding Assessment · €{{ config.extra.prices.assessment | num_format }} fixed, then you decide</span>
+        <span class="offer-price">Start: Binding Assessment · €{{ config.extra.prices.assessment | num_format }} fixed. After it, you decide.</span>
         <span class="offer-cta">See how it works ⟶</span>
       </div>
     </a>
@@ -59,16 +60,15 @@ extern "C" {
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">Why Rust</div>
-      <h2>Correctness at compile time.</h2>
-      <p class="lede">Rust pushes correctness to compile time: strong typing, memory and thread safety, no garbage collector.
-        That fits standards like ISO 26262 and IEC 61508 very well. You catch errors earlier in the V-model, and verification gets cheaper.</p>
+      <h2>What the Rust compiler finds at build time</h2>
+      <p class="lede">The Rust compiler finds memory errors and data races at build time. It does not find logic errors or wrong requirements.
+        ISO 26262 and IEC 61508 recommend methods that find errors early. The Rust compiler does a part of this work on each build.</p>
       <div class="tags strong"><span>{{ <icon name="shield-check" /> }}IEC 61508</span><span>{{ <icon name="shield-check" /> }}ISO 26262</span><span>{{ <icon name="shield-check" /> }}IEC 62304</span></div>
     </div>
-    <div class="grid4 ruled">
-      <div><span class="ico-tile">{{ <icon name="bug" /> }}</span><b>Early error detection</b><p>Memory and concurrency bugs show up at build time, long before integration testing.</p></div>
-      <div><span class="ico-tile">{{ <icon name="shield-check" /> }}</span><b>Deterministic, safe code</b><p>No hidden runtime. Safe Rust cannot cause undefined behavior, as long as the <code>unsafe</code> code below it is sound.</p></div>
-      <div><span class="ico-tile">{{ <icon name="flask" /> }}</span><b>Less testing overhead</b><p>The compiler rules out whole classes of bugs, so your tests can focus on behavior.</p></div>
-      <div><span class="ico-tile">{{ <icon name="merge" /> }}</span><b>Faster integration cycles</b><p>Fewer surprises when the parts come together on the target.</p></div>
+    <div class="grid3 ruled">
+      <div><span class="ico-tile">{{ <icon name="bug" /> }}</span><b>Memory errors at build time</b><p>In safe Rust, the compiler rejects use after free, double free, and data races. These errors appear before the integration test.</p></div>
+      <div><span class="ico-tile">{{ <icon name="shield-check" /> }}</span><b>No hidden runtime</b><p>Rust has no garbage collector. Safe Rust cannot cause undefined behavior if the <code>unsafe</code> code below it is sound.</p></div>
+      <div><span class="ico-tile">{{ <icon name="flask" /> }}</span><b>Tests for the function</b><p>The compiler excludes these error classes. Tests can then look at the function.</p></div>
     </div>
   </div>
 </section>
@@ -77,27 +77,27 @@ extern "C" {
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">More than interop</div>
-      <h2>Consulting, training, development.</h2>
-      <p class="lede">Interop is my focus. For any other Rust topic in a functional safety related project, talk to me too.</p>
+      <h2>Other Rust work in safety projects</h2>
+      <p class="lede">My focus is the Rust and C boundary. I also do other Rust work in functional safety projects.</p>
     </div>
     <div class="grid3">
       <div class="card">
         <div class="card-top"><span class="ico-tile">{{ <icon name="message" /> }}</span><span class="num">01</span></div>
         <h3>Consulting</h3>
-        <p>Rust adoption, architecture and certification workflows for functional safety. And for managers: does Rust pay
-          off in your project, and when?</p>
+        <p>Rust adoption, architecture, and certification process for functional safety. For managers: an estimate of the
+          cost and the benefit of Rust for the project.</p>
         <a class="arrow" href="#book-a-free-call">Book a free call ⟶</a>
       </div>
       <div class="card">
         <div class="card-top"><span class="ico-tile">{{ <icon name="cap" /> }}</span><span class="num">02</span></div>
         <h3>Training</h3>
-        <p>Hands-on Rust workshops for embedded and safety engineers, plus onboarding support for your team.</p>
+        <p>Rust workshops with exercises for embedded and safety engineers. Support for the team in the first months.</p>
         <a class="arrow" href="#book-a-free-call">Plan a workshop ⟶</a>
       </div>
       <div class="card">
         <div class="card-top"><span class="ico-tile">{{ <icon name="code" /> }}</span><span class="num">03</span></div>
         <h3>Development</h3>
-        <p>Production-ready Rust, porting legacy C and C++, and bringing Rust into your existing toolchain.</p>
+        <p>Rust code for production, ports from C and C++ to Rust, and Rust in an existing toolchain.</p>
         <a class="arrow" href="#book-a-free-call">Discuss a project ⟶</a>
       </div>
     </div>
@@ -138,7 +138,7 @@ extern "C" {
       <div>
         <div class="eyebrow">Contact</div>
         <h2>Book a free call.</h2>
-        <p>30 minutes, free. Tell me about your project, and we will see together if and how I can help.</p>
+        <p>30 minutes, free. Tell me about your project. Then we decide together if I can help.</p>
       </div>
       <div class="mail">
         <small>Prefer to write?</small>

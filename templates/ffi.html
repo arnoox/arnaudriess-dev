@@ -9,14 +9,14 @@
   <div class="wrap">
     <div>
       <div class="eyebrow">Rust ↔ C interop · ISO 26262 · IEC 61508</div>
-      <h1>Your Rust and C boundary, <em>proven.</em></h1>
-      <p class="lede">At the end you have evidence for your ISO 26262 or IEC 61508 safety case: what was checked, on which compiler,
-        and what stays with you. You know the price before you commit, and checks in your own CI tell you when the evidence is still valid.</p>
+      <h1>Evidence for a <em>Rust and C binding.</em></h1>
+      <p class="lede">Evidence for an ISO 26262 or IEC 61508 safety case. It states what I examined, with which compiler,
+        and which risks remain open. The price is fixed before each step. CI checks show when the evidence is no longer valid.</p>
       <div class="cta">
         <a class="btn" href="#start">Send me your binding</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
-      <p class="fine">Start with a Binding Assessment: €{{ config.extra.prices.assessment | num_format }} fixed. Then you decide whether to go on.</p>
+      <p class="fine">Start with a Binding Assessment, €{{ config.extra.prices.assessment | num_format }} fixed. Then you decide if you continue.</p>
     </div>
 
     <div class="diff" role="img" aria-label="Layout check: the C build and the Rust binding disagree on the size of a struct">
@@ -34,7 +34,7 @@
           </tbody>
         </table>
       </div>
-      <div class="verdict"><span>✗</span><span><b>Layout mismatch.</b> bindgen ran with a different config header than the C build. It compiled, it passed the lab tests, and it was wrong.</span></div>
+      <div class="verdict"><span>✗</span><span><b>Layout mismatch.</b> bindgen used a different config header than the C build. The code compiled and passed the lab tests. The layout was wrong.</span></div>
     </div>
   </div>
 </section>
@@ -43,14 +43,14 @@
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">The problem</div>
-      <h2>Generated bindings compile, and can still be wrong.</h2>
-      <p class="lede">bindgen and cbindgen do the mechanical part well. The bugs hide where Rust and C make
-        different promises, and no compiler checks that.</p>
+      <h2>A generated binding can compile and still be wrong.</h2>
+      <p class="lede">bindgen and cbindgen do the mechanical translation well. The errors occur where Rust and C make
+        different assumptions. No compiler compares these assumptions.</p>
     </div>
     <div class="grid3">
-      <div class="card bug"><div class="card-top"><span class="ico-tile">{{ <icon name="unlink" /> }}</span><code>use after free</code></div><h3>Ownership across the line</h3><p>Rust drops an object while the C side still holds a pointer to it.</p></div>
-      <div class="card bug"><div class="card-top"><span class="ico-tile">{{ <icon name="zap" /> }}</span><code>undefined behavior</code></div><h3>Panics into C</h3><p>A Rust callback panics and unwinds into C code that was never built for it.</p></div>
-      <div class="card bug"><div class="card-top"><span class="ico-tile">{{ <icon name="layout" /> }}</span><code>size mismatch</code></div><h3>Two views of one struct</h3><p>Different flags or config headers give each side its own idea of the layout.</p></div>
+      <div class="card bug"><div class="card-top"><span class="ico-tile">{{ <icon name="unlink" /> }}</span><code>use after free</code></div><h3>Ownership across the boundary</h3><p>Rust drops an object. The C side still holds a pointer to it.</p></div>
+      <div class="card bug"><div class="card-top"><span class="ico-tile">{{ <icon name="zap" /> }}</span><code>undefined behavior</code></div><h3>Panics into C</h3><p>A Rust callback panics and unwinds into C code. The C code was not compiled for unwinding.</p></div>
+      <div class="card bug"><div class="card-top"><span class="ico-tile">{{ <icon name="layout" /> }}</span><code>size mismatch</code></div><h3>Two views of one struct</h3><p>Different compiler flags or config headers give each side a different layout.</p></div>
     </div>
   </div>
 </section>
@@ -59,15 +59,15 @@
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">How it works</div>
-      <h2>Two steps. You know the price first.</h2>
-      <p class="lede">You start small. After the assessment you know the fixed price of everything that follows.</p>
+      <h2>Two steps, fixed prices.</h2>
+      <p class="lede">The first step is small. The assessment gives the fixed price of the next steps.</p>
     </div>
     <ol class="flow">
       <li class="node door">
         <div class="node-id">{{ <icon name="search" /> }}<span class="num">01 · Start here</span><h3>Binding Assessment</h3></div>
         <div class="node-text">
-          <p>Send me the crate, or the headers and the list of functions you use. Within two working days you know the first risks and the fixed price for step 2.</p>
-          <p class="more">Then you decide. The assessment does not commit you to anything.</p>
+          <p>Send me the crate, or the headers and the list of functions in use. Two working days later, I send the first risks and the fixed price for step 2.</p>
+          <p class="more">Then you decide. The assessment is not a commitment to continue.</p>
         </div>
         <div class="price">€{{ config.extra.prices.assessment | num_format }}</div>
       </li>
@@ -76,8 +76,8 @@
         <div class="node-id">{{ <icon name="file-search" /> }}<span class="num">02</span><h3>Audit or Build</h3></div>
         <div class="node-text">
           <div class="svc">
-            <div><b class="with-ico">{{ <icon name="file-search" /> }}Audit</b><span>You already have a binding. You get a report with every finding and a fixed price to fix each one.</span></div>
-            <div><b class="with-ico">{{ <icon name="code" /> }}Build</b><span>You need a binding. I write it, and it passes the same checks as an audit. Report included.</span></div>
+            <div><b class="with-ico">{{ <icon name="file-search" /> }}Audit</b><span>A binding exists. The report lists all findings, with a fixed price to fix each finding.</span></div>
+            <div><b class="with-ico">{{ <icon name="code" /> }}Build</b><span>No binding exists yet. I write it. It must pass the same checks as an audit. The report is included.</span></div>
           </div>
           <details class="prices">
             <summary>See all prices</summary>
@@ -90,8 +90,8 @@
                 <tr><td><b>XL</b></td><td>more, C++, several libraries</td><td class="n">on quote</td></tr>
               </tbody>
             </table>
-            <p class="note">Build: on request. The assessment gives you a fixed price for it.</p>
-            <p class="note">Every function that crosses the boundary counts. Callbacks, ownership and threads count more. The assessment tells you your size. <a href="#surface-points">What is a surface point? ⟶</a></p>
+            <p class="note">Build: on request. The assessment gives a fixed price for it.</p>
+            <p class="note">Each function that crosses the boundary counts. Callbacks, ownership transfer, and threads count more. The assessment gives the size. <a href="#surface-points">What is a surface point? ⟶</a></p>
           </details>
         </div>
         <div class="price">from €{{ config.extra.prices.audit.s | num_format }}</div>
@@ -100,11 +100,11 @@
       <li class="node next">
         <div class="node-id">{{ <icon name="arrow" /> }}<span class="num">03 · Optional</span><h3>Continue with me</h3></div>
         <div class="node-text">
-          <p>After step 2 you can stop. Or we keep working together.</p>
+          <p>After step 2, you can stop or continue with me.</p>
           <div class="opts">
-            <div><b class="with-ico">{{ <icon name="wrench" /> }}Fix</b><p>I fix the findings you pick and check them again.</p><span class="price">fixed per finding, or all as one package</span></div>
-            <a href="#qualification"><b class="with-ico">{{ <icon name="cpu" /> }}Qualify on your target</b><p>I check layout and ABI on your compiler, flags and hardware, and run the tests there.</p><span class="price">per target</span></a>
-            <a class="hl" href="#subscription"><b class="with-ico">{{ <icon name="refresh" /> }}Subscription</b><p>Your team fixes, I re-check. Then I keep the proof valid when libraries and compilers change.</p><span class="price">€{{ config.extra.prices.subscription | num_format }} / month · cancel any time</span></a>
+            <div><b class="with-ico">{{ <icon name="wrench" /> }}Fix</b><p>I fix the selected findings. Then I examine them again.</p><span class="price">fixed per finding, or all as one package</span></div>
+            <a href="#qualification"><b class="with-ico">{{ <icon name="cpu" /> }}Target qualification</b><p>I examine layout and ABI with the target compiler, flags, and hardware. I run the tests on this configuration.</p><span class="price">per target</span></a>
+            <a class="hl" href="#subscription"><b class="with-ico">{{ <icon name="refresh" /> }}Subscription</b><p>The team fixes the findings, and I examine the fixes. When libraries and compilers change, I keep the evidence valid.</p><span class="price">€{{ config.extra.prices.subscription | num_format }} / month · cancel any time</span></a>
           </div>
         </div>
       </li>
@@ -117,21 +117,21 @@
     <div>
       <div class="stack">
         <div class="eyebrow with-ico">{{ <icon name="pipeline" /> }}Binding gate</div>
-        <h2>The checks run in your CI. You call me only when needed.</h2>
-        <p class="lede">Every audit or build comes with a binding gate for your pipeline. Your team regenerates
-          the binding, and the gate tells you if it is still fine.</p>
+        <h2>The checks run in CI.</h2>
+        <p class="lede">Each audit or build includes a binding gate for the pipeline. When the team generates
+          the binding again, the gate shows if it is still correct.</p>
       </div>
       <ul class="checks">
         <li>Pinned bindgen or cbindgen version and configuration</li>
-        <li>Layout and ABI checks against your real C build</li>
-        <li>Rules that flag changes to callbacks, ownership and <code>unsafe</code></li>
-        <li>Half-day handover so your team knows why each check exists</li>
+        <li>Layout and ABI checks against the real C build</li>
+        <li>Rules that flag changes to callbacks, ownership, and <code>unsafe</code> code</li>
+        <li>Half-day handover. The team learns the reason for each check.</li>
       </ul>
     </div>
     <div class="lights">
-      <div class="light"><span class="lamp g"></span><div><b>Green</b><span>All checks pass. Merge. No call needed.</span></div></div>
-      <div class="light"><span class="lamp y"></span><div><b>Yellow</b><span>A risky area changed. Follow the rules, or send me the diff for review.</span></div></div>
-      <div class="light"><span class="lamp r"></span><div><b>Red</b><span>The scope changed: new compiler, new target. Time to requalify.</span></div></div>
+      <div class="light"><span class="lamp g"></span><div><b>Green</b><span>All checks pass. Merge.</span></div></div>
+      <div class="light"><span class="lamp y"></span><div><b>Yellow</b><span>A high-risk area changed. Obey the rules, or send me the diff for review.</span></div></div>
+      <div class="light"><span class="lamp r"></span><div><b>Red</b><span>The scope changed, for example a new compiler or a new target. The configuration needs a new qualification.</span></div></div>
     </div>
   </div>
 </section>
@@ -140,16 +140,16 @@
   <div class="wrap two">
     <div>
       <div class="stack">
-        <div class="eyebrow with-ico">{{ <icon name="cpu" /> }}Qualify on your target</div>
-        <h2>A proof is valid for one compiler.</h2>
-        <p class="lede">Each proof holds for one compiler. So every report ends
-          with a scope statement, and each target configuration is qualified on its own.</p>
+        <div class="eyebrow with-ico">{{ <icon name="cpu" /> }}Target qualification</div>
+        <h2>The evidence is valid for one configuration.</h2>
+        <p class="lede">Each report ends with a scope statement.
+          I qualify each target configuration separately.</p>
       </div>
       <div class="facts">
         <div><b class="with-ico">{{ <icon name="sliders" /> }}Configuration</b><span>Compiler, version, flags and hardware</span></div>
-        <div><b class="with-ico">{{ <icon name="package" /> }}You provide</b><span>Licenses and board or remote access. The fixed price starts when everything is in place.</span></div>
-        <div><b class="with-ico">{{ <icon name="clock" /> }}Setup</b><span>Hourly, capped at two days</span></div>
-        <div><b class="with-ico">{{ <icon name="monitor" /> }}No board yet</b><span>I qualify on a simulator and say so in the report</span></div>
+        <div><b class="with-ico">{{ <icon name="package" /> }}Customer supplies</b><span>Licenses and access to a board, local or remote. The fixed price starts when all items are available.</span></div>
+        <div><b class="with-ico">{{ <icon name="clock" /> }}Setup</b><span>Hourly, maximum two days</span></div>
+        <div><b class="with-ico">{{ <icon name="monitor" /> }}No board</b><span>I qualify on a simulator. The report states this.</span></div>
       </div>
     </div>
     <pre class="scope"><span class="k">scope_statement:</span>
@@ -172,20 +172,20 @@
     <div class="sub">
       <div class="stack">
         <div class="eyebrow with-ico">{{ <icon name="refresh" /> }}Subscription</div>
-        <h2>I stay on your side.</h2>
-        <p class="lede">Your team fixes the findings, I check the fixes. Later, libraries get security updates and compilers move on.
-          €{{ config.extra.prices.subscription | num_format }} a month. Cancel any time.</p>
+        <h2>Re-checks and updates.</h2>
+        <p class="lede">Your team fixes the findings, and I examine the fixes. Later, libraries get security updates and compilers change.
+          €{{ config.extra.prices.subscription | num_format }} per month. Cancel at any time.</p>
       </div>
       <div>
         <ul>
-          <li>Re-check of your team's fixes, up to two rounds</li>
-          <li>A monthly call with me, the one who audited your binding</li>
-          <li>Answers within two working days</li>
+          <li>Re-check of team fixes, maximum two rounds</li>
+          <li>A monthly call with me, the auditor of the binding</li>
+          <li>Answer in two working days or less</li>
           <li>Review of every yellow change</li>
-          <li>Alerts on compiler bugs and Rust advisories that affect you</li>
+          <li>Alerts on compiler bugs and Rust advisories that affect the binding</li>
           <li>Binding gate kept current</li>
         </ul>
-        <p class="not">Advice and review. Code changes and requalifications are quoted separately.</p>
+        <p class="not">Advice and review only. I quote code changes and new qualifications separately.</p>
       </div>
     </div>
   </div>
@@ -196,14 +196,14 @@
     <div class="head">
       <div class="eyebrow">Example · fictional</div>
       <h2>A year with an Mbed TLS binding.</h2>
-      <p class="lede">An automotive supplier builds a Rust gateway on Mbed TLS. The binding works in the lab. The safety assessor wants proof.
-        140 surface points, size M.</p>
+      <p class="lede">An automotive supplier develops a Rust gateway on Mbed TLS. The binding works in the lab. The safety assessor wants evidence.
+        Size: 140 surface points, M.</p>
     </div>
     <div class="story">
-      <div><span class="when">Weeks 1–5</span><b class="with-ico">{{ <icon name="search" /> }}Assess, audit, fix</b><p>11 findings, 3 critical. Fixed with the fix-everything package.</p></div>
-      <div><span class="when">Months 2–3</span><b class="with-ico">{{ <icon name="cpu" /> }}Qualified on target</b><p>Board arrived three weeks late. The fixed price didn't move. The report went into their safety case.</p></div>
-      <div class="y"><span class="when">Month 4</span><b class="with-ico">{{ <icon name="alert" /> }}Library update</b><p>Gate turned yellow on one struct. Two hours of review, fixed by their own team.</p></div>
-      <div class="r"><span class="when">Month 7</span><b class="with-ico">{{ <icon name="refresh" /> }}New compiler</b><p>Gate turned red. Requalified at a fixed price. One year in, the evidence still matches the shipped binding.</p></div>
+      <div><span class="when">Weeks 1–5</span><b class="with-ico">{{ <icon name="search" /> }}Assessment, audit, fixes</b><p>11 findings, 3 critical. Fixed with the full fix package.</p></div>
+      <div><span class="when">Months 2–3</span><b class="with-ico">{{ <icon name="cpu" /> }}Qualification on target</b><p>The board arrived three weeks late. The fixed price did not change. The report went into the safety case.</p></div>
+      <div class="y"><span class="when">Month 4</span><b class="with-ico">{{ <icon name="alert" /> }}Library update</b><p>The gate turned yellow on one struct. Two hours of review. Their team made the fix.</p></div>
+      <div class="r"><span class="when">Month 7</span><b class="with-ico">{{ <icon name="refresh" /> }}New compiler</b><p>The gate turned red. New qualification at a fixed price. After one year, the evidence still agrees with the shipped binding.</p></div>
     </div>
   </div>
 </section>
@@ -211,10 +211,10 @@
 <section id="scope" class="band">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">What the proof covers</div>
-      <h2>The claim ends where unsafe ends.</h2>
-      <p class="lede">I show that no safe Rust caller can cause undefined behavior through the binding, and that no C contract
-        is silently broken. What the library does is not part of the claim.</p>
+      <div class="eyebrow">What the evidence covers</div>
+      <h2>Scope of the evidence.</h2>
+      <p class="lede">I show two things. No safe Rust caller can cause undefined behavior through the binding.
+        No C contract is broken without a report. The behavior of the library is not in scope.</p>
     </div>
     <div class="two">
       <div>
@@ -231,9 +231,9 @@
         <ul class="checks out">
           <li>Internals and functional correctness of the C or Rust library</li>
           <li>The meaning of values, such as units and ranges, unless a wrong value causes undefined behavior</li>
-          <li>Your idiomatic Rust API on top, as long as it has no <code>unsafe</code></li>
-          <li>Toolchain qualification, beyond the ABI checks on your target</li>
-          <li>Your safety argument. The report is an input to it.</li>
+          <li>An idiomatic Rust API on top, as long as it has no <code>unsafe</code></li>
+          <li>Toolchain qualification, beyond the ABI checks on the target</li>
+          <li>The safety argument. The report is an input to it.</li>
         </ul>
       </div>
     </div>
@@ -244,10 +244,10 @@
   <div class="wrap about">
     <img class="photo" src="{{ get_url(path='assets/arnaud.jpg') }}" width="160" height="160" alt="Portrait of Arnaud Riess">
     <div class="copy">
-      <div class="eyebrow">Who you work with</div>
+      <div class="eyebrow">About me</div>
       <h2>Arnaud Riess</h2>
-      <p>I'm an independent safety-critical Rust consultant, with 15+ years of automotive C and C++ before that.
-        This offer is what I learned at the Rust and C boundary, with fixed prices. More about me on the <a href="{{ get_url(path="/") }}">home page</a>.</p>
+      <p>I am an independent consultant for safety-critical Rust. Before that, I worked more than 15 years with automotive C and C++.
+        This offer contains what I learned at the Rust and C boundary. More about me on the <a href="{{ get_url(path="/") }}">home page</a>.</p>
       <div class="tags strong"><span>Embedded Rust</span><span>{{ <icon name="shield-check" /> }}ISO 26262</span><span>{{ <icon name="shield-check" /> }}IEC 61508</span><span>Rust ↔ C interop</span><span>bindgen / cbindgen</span><span>Formal verification</span></div>
     </div>
   </div>
@@ -268,38 +268,38 @@
       </details>
       <details>
         <summary>How do I know my size before I pay?</summary>
-        <p>You don't need to. The assessment counts the points and gives you the size and the fixed price.</p>
+        <p>Not necessary. The assessment counts the points and gives the size and the fixed price.</p>
       </details>
       <details>
         <summary>What if my binding grows during the audit?</summary>
-        <p>The price is fixed for the scope counted in the assessment. If new code comes in, you get a fixed price for the addition first.</p>
+        <p>The price is fixed for the scope of the assessment. If the scope grows, I first give a fixed price for the added code.</p>
       </details>
       <details>
         <summary>Do you need our whole source code?</summary>
-        <p>No. For the assessment, the crate is enough, or the headers plus the list of functions you use.</p>
+        <p>No. For the assessment, the crate is enough, or the headers plus the list of functions in use.</p>
       </details>
       <details>
         <summary>Does this work when C calls Rust?</summary>
-        <p>Yes. For cbindgen the risk sits in the export shims: panics, null pointers, who frees what, which thread calls.
+        <p>Yes. For cbindgen, the risk is in the export shims: panics, null pointers, memory ownership, and the calling thread.
           C callers get the contract written into the header.</p>
       </details>
       <details>
         <summary>Our C headers are poorly documented. Is that a problem?</summary>
-        <p>No. You get one list of questions with a deadline. Where there is no answer, I assume the safe case and
-          write it into the report. A missing contract is a finding.</p>
+        <p>No. I send one list of questions with a deadline. If a question has no answer, I assume the safe case and
+          write it in the report. A missing contract is a finding.</p>
       </details>
       <details>
         <summary>Can you audit a binding you built yourself?</summary>
-        <p>Build and audit are separate work packages, and my own code passes the same checks.
-          If your integrity level needs an independent review, we agree on a second reviewer before the work starts.</p>
+        <p>Build and audit are separate work packages. My own code must pass the same checks.
+          If the integrity level needs an independent review, we agree on a second reviewer before the work starts.</p>
       </details>
       <details>
         <summary>What if my team fixes the findings?</summary>
-        <p>The report is yours, and your team can fix the findings itself. With the subscription, I re-check the fixes, up to two rounds included.</p>
+        <p>The report is yours, and your team can fix the findings. With the subscription, I re-check the fixes, up to two rounds included.</p>
       </details>
       <details>
         <summary>When does the subscription start?</summary>
-        <p>With the audit report, so I can re-check your team's fixes right away. You can cancel any time.</p>
+        <p>With the audit report, so that I can re-check the fixes right away. Cancel at any time.</p>
       </details>
     </div>
   </div>
@@ -309,8 +309,8 @@
   <div class="wrap split">
     <div>
       <h2>Start with the assessment.</h2>
-      <p>Send your crate or your headers. In two working days you know your size class, the first risks and the fixed price.
-        €{{ config.extra.prices.assessment | num_format }} fixed. Then you decide whether to go on.</p>
+      <p>Send the crate or the headers. Two working days later, you know the size class, the first risks, and the fixed price.
+        €{{ config.extra.prices.assessment | num_format }} fixed. Then you decide if you continue.</p>
     </div>
     <div class="mail">
       <small>Book a call, or send your binding to</small>
